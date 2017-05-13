@@ -1,0 +1,133 @@
+{% extends "contentPlusLeft.html" %}
+
+{% block header %}
+    <h2>{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h2>
+    <div class="team-row">
+        <figure style="width: 140px;">
+            <figcaption style="margin:0 auto;">
+                <a href="https://vk.com/id{{ donater.donater_id }}"><img src="{{ image }}"
+                height="100px" width="100px" style="border-radius: 100px;border: 1px solid cornflowerblue;"></a>
+            </figcaption>
+        </figure>
+        <figure style="width: 140px;vertical-align: top">
+            <figcaption style="margin:0 auto;">
+                <span>Общий размер донатов</span> {{ donater.donater_summOfAllDonations }}
+            </figcaption>
+        </figure>
+        <figure style="width: 140px;vertical-align: top">
+            <figcaption style="margin:0 auto;">
+                <span>Количество донатов</span> {{ numberOfDonations }}
+            </figcaption>
+        </figure>
+        <figure style="width: 140px;vertical-align: top">
+            <figcaption style="margin:0 auto;">
+                <span>Самый большой донат</span> {{ theBiggestSize.0.donation_size }}
+            </figcaption>
+        </figure>
+    </div>
+{% endblock %}
+
+{% block mainInformation %}
+    <h2>ДОНАТЫ ПОЛЬЗОВАТЕЛЯ</h2>
+    <hr>
+    {% for donation in donations %}
+        <div class="less-text-row">
+            <figure style="width: 150px;">
+                <figcaption style="margin:0 auto">
+                    <span>Дата: </span>{{ donation.donation_date }}
+                </figcaption>
+            </figure>
+            <figure style="width: 50px;">
+                <figcaption style="margin:0 auto">
+                    <span>Размер: </span>{{ donation.donation_size }}
+                </figcaption>
+            </figure>
+            <figure style="width: 400px;vertical-align: top">
+                <figcaption style="margin:0 auto; ">
+                    <span>Текст: </span> {{donation.donation_text}}
+                </figcaption>
+            </figure>
+        </div>
+        <hr>
+    {% endfor %}
+
+        <ul class="pagination">
+        <figure style="width: 100px;">
+            <div align="right">
+                <figcaption>
+                    {% if donations.has_previous %}
+                        <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{ donations.previous_page_number }}/">&laquo;</a></li>
+                    {% else %}
+                        <li>&laquo;</li>
+                    {% endif %}
+                </figcaption>
+            </div>
+        </figure>
+
+        <figure style="width: 400px;">
+            <figcaption>
+                <div align="center">
+                    <!-- Прибавляем к номеру текущей страницы -4 (т.е. отнимаем 4) -->
+                    {% if donations.number|add:'-4' > 0 %}
+                        <!-- Если до текущей страницы есть больше 4 страниц, показываем многоточие -->
+                        <li><span>...</span></li>
+                    {% endif %}
+
+                    {% if donations.number|add:'-3' > 0 %}
+                        <!-- Если до текущей страницы есть ещё три страницы -->
+                        <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{donations.number|add:'-3'}}/">{{ donations.number|add:'-3' }}</a></li>
+                    {% endif %}
+                    {% if donations.number|add:'-2' > 0 %}
+                        <!-- Если до текущей страницы есть ещё две страницы -->
+                        <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{donations.number|add:'-2'}}/">{{ donations.number|add:'-2' }}</a></li>
+                    {% endif %}
+                    {% if donations.number|add:'-1' > 0 %}
+                        <!-- Если до текущей страницы есть ещё одна страница -->
+                        <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{donations.number|add:'-1'}}/">{{ donations.number|add:'-1' }}</a></li>
+                    {% endif %}
+
+                    <!-- Номер текущей страницы -->
+                    <li class="current"><a>{{ donations.number }}</a></li>
+
+                    {% if donations.number|add:'1' <= paginator.num_pages %}
+                        <!-- Если после текущей страницы есть ещё одна страница -->
+                        <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{donations.number|add:'1'}}/">{{ donations.number|add:'1' }}</a></li>
+                    {% endif %}
+                    {% if donations.number|add:'2' <= paginator.num_pages%}
+                        <!-- Если после текущей страницы есть ещё две страницы -->
+                        <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{donations.number|add:'2'}}/">{{ donations.number|add:'2' }}</a></li>
+                    {% endif %}
+                    {% if donations.number|add:'3' <= paginator.num_pages%}
+                        <!-- Если после текущей страницы есть ещё три страницы -->
+                        <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{donations.number|add:'3'}}/">{{ donations.number|add:'3' }}</a></li>
+                    {% endif %}
+
+                    {% if donations.number|add:'4' <= paginator.num_pages%}
+                        <!-- Если после текущей страницы есть ещё четыре страницы -->
+                        <li><span>...</span></li>
+                    {% endif %}
+                </div>
+            </figcaption>
+        </figure>
+
+        <figure style="width: 100px;">
+            <figcaption style="margin: 0 auto">
+                {% if donations.has_next %}
+                    <li><a href="/currentDonater/get/{{ donater.donater_id }}/page/{{donations.next_page_number}}/">&raquo;</a></li>
+                {% else %}
+                    <li>&raquo;</li>
+                {% endif %}
+            </figcaption>
+        </figure>
+    </ul>
+{% endblock %}
+
+{% block active %}
+    <nav>
+        <ul class="aside-menu">
+            <li><a href="/donations/">МОИ ДОНАТЫ</a></li>
+            <li class="active"><a href="/donaters/">МОИ ДОНАТЕРЫ</a></li>
+            <li><a href="/groups/">МОИ ГРУППЫ</a></li>
+        </ul>
+    </nav>
+{% endblock %}

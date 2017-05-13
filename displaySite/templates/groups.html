@@ -1,0 +1,25 @@
+{% extends "contentPlusLeft.html" %}
+
+{% block mainInformation %}
+    <h2>МОИ ГРУППЫ</h2>
+    <div class="team-row">
+    {% for group in data %}
+        <figure>
+            <a href="/currentGroup/get/{{ group.group_id }}">
+                <img src="{{ group.link }}" height="100px" width="100px"
+                  style="margin-right: 30px;border-radius:100px; border-color: deepskyblue">
+            </a>
+        </figure>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block active %}
+    <nav>
+        <ul class="aside-menu">
+            <li><a href="/donations/">МОИ ДОНАТЫ</a></li>
+            <li><a href="/donaters/">МОИ ДОНАТЕРЫ</a></li>
+            <li class="active"><a href="/groups/">МОИ ГРУППЫ</a></li>
+        </ul>
+    </nav>
+{% endblock %}

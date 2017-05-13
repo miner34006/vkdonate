@@ -1,0 +1,112 @@
+{% extends "contentPlusLeft.html" %}
+<!-- Вывод всех донатов на страницу -->
+
+{% block mainInformation %}
+    <h2>МОИ ДОНАТЕРЫ</h2>
+    <hr>
+    {% for donater in donaters %}
+        <div class="text-row">
+            <figure style="width: 140px;">
+                <figcaption style="margin:0 auto">
+                    <span>Фамилия: </span> <a href="/currentDonater/get/{{ donater.donater_id }}">{{ donater.donater_secondName }}</a>
+                </figcaption>
+            </figure>
+            <figure style="width: 140px;">
+                <figcaption style="margin:0 auto">
+                    <span>Имя: </span>{{ donater.donater_firtstName }}
+                </figcaption>
+            </figure>
+            <figure style="width: 140px; vertical-align: top">
+                <figcaption style="margin:0 auto; ">
+                    <span>ID: </span> <a href="https://vk.com/id{{ donater.donater_id }}">{{donater.donater_id}}</a>
+                </figcaption>
+            </figure>
+            <figure style="width: 140px;">
+                <figcaption style="margin:0 auto">
+                    <span>Общий размер донатов: </span> {{ donater.donater_summOfAllDonations }}
+                </figcaption>
+            </figure>
+        <hr>
+    {% endfor %}
+
+    <ul class="pagination">
+        <figure style="width: 100px;">
+            <div align="right">
+                <figcaption>
+                    {% if donaters.has_previous %}
+                        <li><a href="/donaters/page/{{ donaters.previous_page_number }}/">&laquo;</a></li>
+                    {% else %}
+                        <li><a href="">&laquo;</a></li>
+                    {% endif %}
+                </figcaption>
+            </div>
+        </figure>
+
+        <figure style="width: 400px;">
+            <figcaption>
+                <div align="center">
+                    <!-- Прибавляем к номеру текущей страницы -4 (т.е. отнимаем 4) -->
+                    {% if donaters.number|add:'-4' > 0 %}
+                        <!-- Если до текущей страницы есть больше 4 страниц, показываем многоточие -->
+                        <li><span>...</span></li>
+                    {% endif %}
+
+                    {% if donaters.number|add:'-3' > 0 %}
+                        <!-- Если до текущей страницы есть ещё три страницы -->
+                        <li><a href="/donations/page/{{donaters.number|add:'-3'}}">{{ donaters.number|add:'-3' }}</a></li>
+                    {% endif %}
+                    {% if donaters.number|add:'-2' > 0 %}
+                        <!-- Если до текущей страницы есть ещё две страницы -->
+                        <li><a href="/donaters/page/{{donaters.number|add:'-2'}}">{{ donaters.number|add:'-2' }}</a></li>
+                    {% endif %}
+                    {% if donaters.number|add:'-1' > 0 %}
+                        <!-- Если до текущей страницы есть ещё одна страница -->
+                        <li><a href="/donaters/page/{{donaters.number|add:'-1'}}">{{ donaters.number|add:'-1' }}</a></li>
+                    {% endif %}
+
+                    <!-- Номер текущей страницы -->
+                    <li class="current"><a>{{ donaters.number }}</a></li>
+
+                    {% if donaters.number|add:'1' <= paginator.num_pages %}
+                        <!-- Если после текущей страницы есть ещё одна страница -->
+                        <li><a href="/donaters/page/{{donaters.number|add:'1'}}">{{ donaters.number|add:'1' }}</a></li>
+                    {% endif %}
+                    {% if donaters.number|add:'2' <= paginator.num_pages%}
+                        <!-- Если после текущей страницы есть ещё две страницы -->
+                        <li><a href="/donaters/page/{{donations.number|add:'2'}}">{{ donaters.number|add:'2' }}</a></li>
+                    {% endif %}
+                    {% if donaters.number|add:'3' <= paginator.num_pages%}
+                        <!-- Если после текущей страницы есть ещё три страницы -->
+                        <li><a href="/donaters/page/{{donaters.number|add:'3'}}">{{ donaters.number|add:'3' }}</a></li>
+                    {% endif %}
+
+                    {% if donaters.number|add:'4' <= paginator.num_pages%}
+                        <!-- Если после текущей страницы есть ещё четыре страницы -->
+                        <li><span>...</span></li>
+                    {% endif %}
+                </div>
+            </figcaption>
+        </figure>
+
+        <figure style="width: 50px;">
+            <figcaption style="margin: 0 auto">
+                {% if donaters.has_next %}
+                    <li><a href="/donaters/page/{{ donaters.next_page_number }}/">&raquo;</a></li>
+                {% else %}
+                    <li><a href="">&raquo;</a></li>
+                {% endif %}
+            </figcaption>
+        </figure>
+    </ul>
+    </div>
+{% endblock %}
+
+{% block active %}
+    <nav>
+        <ul class="aside-menu">
+            <li><a href="/donations/">МОИ ДОНАТЫ</a></li>
+            <li class="active"><a href="/donaters/">МОИ ДОНАТЕРЫ</a></li>
+            <li><a href="/groups/">МОИ ГРУППЫ</a></li>
+        </ul>
+    </nav>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "content.html" %}
+
+{% block content %}
+<section>
+
+    {% block header %}
+    {% endblock %}
+
+    {% block mainInformation %}
+    {% endblock %}
+
+</section>
+{% endblock %}
+
+{% block last_donate %}
+    <h2>ПОСЛЕДНИЙ ДОНАТ</h2>
+    <p>Дата: {{ last_donate.0.donation_date }}</p>
+    <p>Размер: {{ last_donate.0.donation_size }}</p>
+    <p>Сообщение: {{ last_donate.0.donation_text }}</p>
+{% endblock %}
