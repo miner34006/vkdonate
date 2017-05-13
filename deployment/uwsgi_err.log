@@ -1,0 +1,805 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 10:59:58 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 10:59:59 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xba5f50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xba5f50 pid: 956 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 956)
+Sat May 13 10:59:59 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 960, cores: 1)
+spawned uWSGI worker 2 (pid: 961, cores: 1)
+spawned uWSGI worker 3 (pid: 962, cores: 1)
+spawned uWSGI worker 4 (pid: 963, cores: 1)
+spawned uWSGI worker 5 (pid: 964, cores: 1)
+spawned uWSGI worker 6 (pid: 965, cores: 1)
+spawned uWSGI worker 7 (pid: 966, cores: 1)
+spawned uWSGI worker 8 (pid: 967, cores: 1)
+spawned uWSGI worker 9 (pid: 968, cores: 1)
+spawned uWSGI worker 10 (pid: 969, cores: 1)
+Sat May 13 10:59:59 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:00:23 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:00:23 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:00:26 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:00:27 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:00:41 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:00:41 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xe55f50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0xe55f50 pid: 996 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 996)
+Sat May 13 11:00:42 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1000, cores: 1)
+spawned uWSGI worker 2 (pid: 1001, cores: 1)
+spawned uWSGI worker 3 (pid: 1002, cores: 1)
+spawned uWSGI worker 4 (pid: 1003, cores: 1)
+spawned uWSGI worker 5 (pid: 1004, cores: 1)
+spawned uWSGI worker 6 (pid: 1005, cores: 1)
+spawned uWSGI worker 7 (pid: 1006, cores: 1)
+spawned uWSGI worker 8 (pid: 1007, cores: 1)
+spawned uWSGI worker 9 (pid: 1008, cores: 1)
+spawned uWSGI worker 10 (pid: 1009, cores: 1)
+Sat May 13 11:00:42 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[pid: 1003|app: 0|req: 1/1] 188.243.82.198 () {44 vars in 698 bytes} [Sat May 13 15:00:54 2017] GET / => generated 1855 bytes in 31 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:00:54 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1008|app: 0|req: 1/2] 188.243.82.198 () {44 vars in 698 bytes} [Sat May 13 15:00:56 2017] GET / => generated 1855 bytes in 30 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:00:56 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1007|app: 0|req: 1/3] 188.243.82.198 () {42 vars in 687 bytes} [Sat May 13 15:00:57 2017] GET /donations/ => generated 0 bytes in 24 msecs (HTTP/1.1 302) 5 headers in 137 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:00:57 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1008|app: 0|req: 2/4] 188.243.82.198 () {42 vars in 667 bytes} [Sat May 13 15:00:57 2017] GET / => generated 1855 bytes in 4 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 1003|app: 0|req: 2/5] 188.243.82.198 () {42 vars in 685 bytes} [Sat May 13 15:00:57 2017] GET /donaters/ => generated 0 bytes in 12 msecs (HTTP/1.1 302) 5 headers in 137 bytes (1 switches on core 0)
+[pid: 1000|app: 0|req: 1/6] 188.243.82.198 () {42 vars in 667 bytes} [Sat May 13 15:00:57 2017] GET / => generated 1855 bytes in 29 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:00:57 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:03:39 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:03:39 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:03:42 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:03:43 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:04:06 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:04:06 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x22b9f50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x22b9f50 pid: 1086 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1086)
+Sat May 13 11:04:07 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1090, cores: 1)
+spawned uWSGI worker 2 (pid: 1091, cores: 1)
+spawned uWSGI worker 3 (pid: 1092, cores: 1)
+spawned uWSGI worker 4 (pid: 1093, cores: 1)
+spawned uWSGI worker 5 (pid: 1094, cores: 1)
+spawned uWSGI worker 6 (pid: 1095, cores: 1)
+spawned uWSGI worker 7 (pid: 1096, cores: 1)
+spawned uWSGI worker 8 (pid: 1097, cores: 1)
+spawned uWSGI worker 9 (pid: 1098, cores: 1)
+spawned uWSGI worker 10 (pid: 1099, cores: 1)
+Sat May 13 11:04:07 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[pid: 1091|app: 0|req: 1/1] 118.193.31.180 () {32 vars in 356 bytes} [Sat May 13 15:04:51 2017] GET / => generated 1855 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:04:51 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1099|app: 0|req: 1/2] 188.243.82.198 () {44 vars in 704 bytes} [Sat May 13 15:15:32 2017] GET / => generated 1855 bytes in 28 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:15:32 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1097|app: 0|req: 1/3] 188.243.82.198 () {42 vars in 675 bytes} [Sat May 13 15:15:34 2017] GET /donations/ => generated 0 bytes in 21 msecs (HTTP/1.1 302) 5 headers in 137 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:15:34 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1098|app: 0|req: 1/4] 188.243.82.198 () {42 vars in 655 bytes} [Sat May 13 15:15:34 2017] GET / => generated 1855 bytes in 25 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:15:34 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1099|app: 0|req: 2/5] 188.243.82.198 () {42 vars in 673 bytes} [Sat May 13 15:15:35 2017] GET /donaters/ => generated 0 bytes in 13 msecs (HTTP/1.1 302) 5 headers in 137 bytes (1 switches on core 0)
+[pid: 1097|app: 0|req: 2/6] 188.243.82.198 () {42 vars in 655 bytes} [Sat May 13 15:15:35 2017] GET / => generated 1855 bytes in 16 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:18:48 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:18:48 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:18:51 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:18:52 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:19:06 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:19:06 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x9c0f50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x9c0f50 pid: 1299 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1299)
+Sat May 13 11:19:06 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1303, cores: 1)
+spawned uWSGI worker 2 (pid: 1304, cores: 1)
+spawned uWSGI worker 3 (pid: 1305, cores: 1)
+spawned uWSGI worker 4 (pid: 1306, cores: 1)
+spawned uWSGI worker 5 (pid: 1307, cores: 1)
+spawned uWSGI worker 6 (pid: 1308, cores: 1)
+spawned uWSGI worker 7 (pid: 1309, cores: 1)
+spawned uWSGI worker 8 (pid: 1310, cores: 1)
+spawned uWSGI worker 9 (pid: 1311, cores: 1)
+spawned uWSGI worker 10 (pid: 1312, cores: 1)
+Sat May 13 11:19:06 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:19:50 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:19:50 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:19:53 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:19:54 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:20:05 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:20:05 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7c0f50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7c0f50 pid: 1378 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1378)
+Sat May 13 11:20:06 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1382, cores: 1)
+spawned uWSGI worker 2 (pid: 1383, cores: 1)
+spawned uWSGI worker 3 (pid: 1384, cores: 1)
+spawned uWSGI worker 4 (pid: 1385, cores: 1)
+spawned uWSGI worker 5 (pid: 1386, cores: 1)
+spawned uWSGI worker 6 (pid: 1387, cores: 1)
+spawned uWSGI worker 7 (pid: 1388, cores: 1)
+spawned uWSGI worker 8 (pid: 1389, cores: 1)
+spawned uWSGI worker 9 (pid: 1390, cores: 1)
+spawned uWSGI worker 10 (pid: 1391, cores: 1)
+Sat May 13 11:20:06 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:20:31 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:20:31 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:20:34 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:20:35 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:20:39 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:20:39 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1b45f50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1b45f50 pid: 1418 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1418)
+Sat May 13 11:20:39 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1422, cores: 1)
+spawned uWSGI worker 2 (pid: 1423, cores: 1)
+spawned uWSGI worker 3 (pid: 1424, cores: 1)
+spawned uWSGI worker 4 (pid: 1425, cores: 1)
+spawned uWSGI worker 5 (pid: 1426, cores: 1)
+spawned uWSGI worker 6 (pid: 1427, cores: 1)
+spawned uWSGI worker 7 (pid: 1428, cores: 1)
+spawned uWSGI worker 8 (pid: 1429, cores: 1)
+spawned uWSGI worker 9 (pid: 1430, cores: 1)
+spawned uWSGI worker 10 (pid: 1431, cores: 1)
+Sat May 13 11:20:39 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[pid: 1424|app: 0|req: 1/1] 188.243.82.198 () {44 vars in 686 bytes} [Sat May 13 15:20:55 2017] GET / => generated 1855 bytes in 30 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:20:55 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1430|app: 0|req: 1/2] 188.243.82.198 () {44 vars in 686 bytes} [Sat May 13 15:20:56 2017] GET / => generated 1855 bytes in 27 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:20:56 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1424|app: 0|req: 2/3] 188.243.82.198 () {42 vars in 673 bytes} [Sat May 13 15:20:57 2017] GET /donaters/ => generated 0 bytes in 12 msecs (HTTP/1.1 302) 5 headers in 137 bytes (1 switches on core 0)
+[pid: 1431|app: 0|req: 1/4] 188.243.82.198 () {42 vars in 655 bytes} [Sat May 13 15:20:57 2017] GET / => generated 1855 bytes in 25 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:20:57 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1430|app: 0|req: 2/5] 188.243.82.198 () {42 vars in 675 bytes} [Sat May 13 15:21:47 2017] GET /donations/ => generated 0 bytes in 13 msecs (HTTP/1.1 302) 5 headers in 137 bytes (1 switches on core 0)
+[pid: 1431|app: 0|req: 2/6] 188.243.82.198 () {42 vars in 655 bytes} [Sat May 13 15:21:47 2017] GET / => generated 1855 bytes in 7 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:25:25 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:25:25 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:25:28 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:25:29 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:25:39 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:25:39 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x17bff50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x17bff50 pid: 1615 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1615)
+Sat May 13 11:25:40 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1619, cores: 1)
+spawned uWSGI worker 2 (pid: 1620, cores: 1)
+spawned uWSGI worker 3 (pid: 1621, cores: 1)
+spawned uWSGI worker 4 (pid: 1622, cores: 1)
+spawned uWSGI worker 5 (pid: 1623, cores: 1)
+spawned uWSGI worker 6 (pid: 1624, cores: 1)
+spawned uWSGI worker 7 (pid: 1625, cores: 1)
+spawned uWSGI worker 8 (pid: 1626, cores: 1)
+spawned uWSGI worker 9 (pid: 1627, cores: 1)
+spawned uWSGI worker 10 (pid: 1628, cores: 1)
+Sat May 13 11:25:40 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:29:09 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:29:09 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:29:12 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:29:13 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:29:16 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:29:16 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0xe82f50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xe82f50 pid: 1732 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1732)
+Sat May 13 11:29:16 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1738, cores: 1)
+spawned uWSGI worker 2 (pid: 1739, cores: 1)
+spawned uWSGI worker 3 (pid: 1740, cores: 1)
+spawned uWSGI worker 4 (pid: 1741, cores: 1)
+spawned uWSGI worker 5 (pid: 1742, cores: 1)
+spawned uWSGI worker 6 (pid: 1743, cores: 1)
+spawned uWSGI worker 7 (pid: 1744, cores: 1)
+spawned uWSGI worker 8 (pid: 1745, cores: 1)
+spawned uWSGI worker 9 (pid: 1746, cores: 1)
+spawned uWSGI worker 10 (pid: 1747, cores: 1)
+Sat May 13 11:29:16 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:29:55 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:29:55 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:29:58 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:29:59 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:30:13 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:30:13 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x264ff50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x264ff50 pid: 1817 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1817)
+Sat May 13 11:30:14 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1821, cores: 1)
+spawned uWSGI worker 2 (pid: 1822, cores: 1)
+spawned uWSGI worker 3 (pid: 1823, cores: 1)
+spawned uWSGI worker 4 (pid: 1824, cores: 1)
+spawned uWSGI worker 5 (pid: 1825, cores: 1)
+spawned uWSGI worker 6 (pid: 1826, cores: 1)
+spawned uWSGI worker 7 (pid: 1827, cores: 1)
+spawned uWSGI worker 8 (pid: 1828, cores: 1)
+spawned uWSGI worker 9 (pid: 1829, cores: 1)
+spawned uWSGI worker 10 (pid: 1830, cores: 1)
+Sat May 13 11:30:14 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[pid: 1823|app: 0|req: 1/1] 188.243.82.198 () {44 vars in 686 bytes} [Sat May 13 15:30:24 2017] GET / => generated 1851 bytes in 27 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:30:24 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[pid: 1829|app: 0|req: 1/2] 188.243.82.198 () {44 vars in 686 bytes} [Sat May 13 15:30:25 2017] GET / => generated 1851 bytes in 35 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:30:25 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+[emperor] *** RAGNAROK EVOKED ***
+Sat May 13 11:31:09 2017 - [emperor] stop the uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 15:31:09 2017 - received message 0 from emperor
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 2 seconds
+worker 5 buried after 2 seconds
+worker 6 buried after 2 seconds
+worker 7 buried after 2 seconds
+worker 8 buried after 2 seconds
+worker 9 buried after 2 seconds
+worker 10 buried after 2 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/django/vkdonate/uwsgi_nginx.sock removed.
+Sat May 13 11:31:12 2017 - [emperor] removed uwsgi instance /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+Sat May 13 11:31:13 2017 - The Emperor is buried.
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:31:23 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** WARNING: you are running uWSGI without its master process manager ***
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 5) ***
+[uWSGI] getting INI configuration from /home/django/vkdonate/deployment/vkdonate_uwsgi.ini
+*** Starting uWSGI 2.0.15 (64bit) on [Sat May 13 11:31:23 2017] ***
+compiled with version: 4.8.4 on 13 May 2017 09:53:12
+os: Linux-2.6.32-042stab120.16 #1 SMP Tue Dec 13 20:58:28 MSK 2016
+nodename: vkdonate
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 1
+current working directory: /
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/django/vkdonate
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/django/vkdonate/uwsgi_nginx.sock fd 3
+Python version: 3.4.3 (default, Nov 17 2016, 01:12:14)  [GCC 4.8.4]
+Set PythonHome to /home/django/venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x1deaf50
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 800448 bytes (781 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1deaf50 pid: 1891 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 1891)
+Sat May 13 11:31:23 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 1895, cores: 1)
+spawned uWSGI worker 2 (pid: 1896, cores: 1)
+spawned uWSGI worker 3 (pid: 1897, cores: 1)
+spawned uWSGI worker 4 (pid: 1898, cores: 1)
+spawned uWSGI worker 5 (pid: 1899, cores: 1)
+spawned uWSGI worker 6 (pid: 1900, cores: 1)
+spawned uWSGI worker 7 (pid: 1901, cores: 1)
+spawned uWSGI worker 8 (pid: 1902, cores: 1)
+spawned uWSGI worker 9 (pid: 1903, cores: 1)
+spawned uWSGI worker 10 (pid: 1904, cores: 1)
+Sat May 13 11:31:23 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is ready to accept requests
+[pid: 1897|app: 0|req: 1/1] 188.243.82.198 () {44 vars in 686 bytes} [Sat May 13 15:31:27 2017] GET / => generated 1856 bytes in 25 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:31:27 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal
+Invalid HTTP_HOST header: 'sergey2011.fvds.ru'. You may need to add 'sergey2011.fvds.ru' to ALLOWED_HOSTS.
+[pid: 1904|app: 0|req: 1/2] 196.52.43.62 () {28 vars in 309 bytes} [Sat May 13 15:54:30 2017] GET / => generated 55965 bytes in 60 msecs (HTTP/1.1 400) 3 headers in 105 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sat May 13 11:54:30 2017 - [emperor] vassal /home/django/vkdonate/deployment/vkdonate_uwsgi.ini is now loyal

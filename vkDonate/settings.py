@@ -27,9 +27,9 @@ SECRET_KEY = '7w7kg#fc)pns1v%l63xh6t$7q94^%n)@08k3!+259j8(c_j+uh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'62.109.8.247',
+ALLOWED_HOSTS = [u'62.109.15.129',
                  u'127.0.0.1',
-	              'vkdonate.ru',
+	          'vkdonate.ru',
 		            ]
 
 # Application definition
@@ -63,11 +63,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         #'DIRS': [os.path.join(BASE_DIR, 'templates')]
 
-        'DIRS': ['/home/bogdan/Documents/python/vkDonate/templates',
-                 '/home/bogdan/Documents/python/vkDonate/displaySite/templates',
-                 '/home/bogdan/Documents/python/vkDonate/authorization/templates',
-		              #Путь для сайта
-		             '/home/django/vkdonate/templates',
+        'DIRS': [
+		 '/home/django/vkdonate/templates',
                  '/home/django/vkdonate/displaySite/templates'
                  '/home/django/vkdonate/authorization/templates'
                  ]
@@ -88,13 +85,6 @@ WSGI_APPLICATION = 'vkDonate.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-#DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': os.path.join(BASE_DIR, 'vkDonate.sqlite3'),
-#    }
-#}
 
 # База данных для сайта
 DATABASES = {
@@ -155,11 +145,6 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = "/home/django/vkdonate/media"
 
 #Путь к статике для сайта
-#STATIC_ROOT = "/home/django/vkdonate/static"
-STATIC_ROOT = "/home/bogdan/Documents/python/vkDonate/static"
+STATIC_ROOT = "/home/django/vkdonate/static/"
 
-STATICFILES_DIRS = [
-    ('static', '/home/bogdan/Documents/python/vkDonate/displaySite/static'),
-    #Статика для сайта
-    #('static', '/home/django/vkdonate/static'),
-]
+
