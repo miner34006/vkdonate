@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+#Тестовый коммит для ветки develop
+
 import sys
 sys.path.append("/home/django/vkdonate/vkapi/class")
 
