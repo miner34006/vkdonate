@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append("/home/django/vkdonate/vkapi/class")
+sys.path.append("/home/bogdan/Documents/python/vkDonate/vkapi/class")
+#sys.path.append("/home/django/vkdonate/vkapi/class")
 
 from django.db import models
 from django.contrib import auth

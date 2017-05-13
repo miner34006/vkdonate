@@ -3,7 +3,8 @@
 #Тестовый коммит для ветки develop
 
 import sys
-sys.path.append("/home/django/vkdonate/vkapi/class")
+sys.path.append("/home/bogdan/Documents/python/vkDonate/vkapi/class")
+#sys.path.append("/home/django/vkdonate/vkapi/class")
 
 from django.shortcuts import render
 from django.shortcuts import render_to_response, redirect

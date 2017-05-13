@@ -65,8 +65,12 @@ TEMPLATES = [
 
         'DIRS': [
 		 '/home/django/vkdonate/templates',
-                 '/home/django/vkdonate/displaySite/templates'
-                 '/home/django/vkdonate/authorization/templates'
+                 '/home/django/vkdonate/displaySite/templates',
+                 '/home/django/vkdonate/authorization/templates',
+
+		'/home/bogdan/Documents/python/vkDonate/templates/',
+                 '/home/bogdan/Documents/python/vkDonate/displaySite/templates/',
+                 '/home/bogdan/Documents/python/vkDonate/authorization/templates/',
                  ]
         ,
         'APP_DIRS': True,
@@ -142,9 +146,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Папка медиа-ресурсов для сайта
-MEDIA_ROOT = "/home/django/vkdonate/media"
+MEDIA_ROOT = "/home/bogdan/Documents/python/vkDonate/media"
+#MEDIA_ROOT = "/home/django/vkdonate/media"
 
 #Путь к статике для сайта
-STATIC_ROOT = "/home/django/vkdonate/static/"
+STATIC_ROOT = "/home/bogdan/Documents/python/vkDonate/static"
+#STATIC_ROOT = "/home/django/vkdonate/static/"
 
 
