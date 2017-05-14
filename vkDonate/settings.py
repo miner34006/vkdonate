@@ -64,11 +64,11 @@ TEMPLATES = [
         #'DIRS': [os.path.join(BASE_DIR, 'templates')]
 
         'DIRS': [
-		 '/home/django/vkdonate/templates',
+		            '/home/django/vkdonate/templates',
                  '/home/django/vkdonate/displaySite/templates',
                  '/home/django/vkdonate/authorization/templates',
 
-		'/home/bogdan/Documents/python/vkDonate/templates/',
+		             '/home/bogdan/Documents/python/vkDonate/templates/',
                  '/home/bogdan/Documents/python/vkDonate/displaySite/templates/',
                  '/home/bogdan/Documents/python/vkDonate/authorization/templates/',
                  ]
