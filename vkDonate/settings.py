@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap3',
     'displaySite',
     'authorization',
 ]
@@ -143,14 +144,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
 
 #Папка медиа-ресурсов для сайта
-MEDIA_ROOT = "/home/bogdan/Documents/python/vkDonate/media"
+MEDIA_ROOT = "/home/bogdan/Documents/python/vkDonate/media/"
 #MEDIA_ROOT = "/home/django/vkdonate/media"
 
 #Путь к статике для сайта
-STATIC_ROOT = "/home/bogdan/Documents/python/vkDonate/static"
+STATIC_ROOT = "/home/bogdan/Documents/python/vkDonate/static/"
 #STATIC_ROOT = "/home/django/vkdonate/static/"
 
 

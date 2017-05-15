@@ -1,0 +1,43 @@
+.title{
+    margin-top: 0;
+}
+
+.center{
+    display:block;
+    margin:0 auto;
+}
+
+.number{
+    width:70px;
+    text-align: center;
+}
+
+.date{
+    width:200px;
+    text-align: center;
+}
+
+.id{
+    width:120px;
+    text-align: center;
+}
+
+.size{
+    width:100px;
+    text-align: center;
+}
+
+.alldonationsize{
+    width:150px;
+    text-align: center;
+}
+
+.firstname{
+    width: 200px;
+    text-align: center;
+}
+
+.secondname{
+    width: 200px;
+    text-align: center;
+}

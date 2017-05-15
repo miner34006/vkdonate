@@ -1,0 +1,12 @@
+.title{
+    margin-top: 0;
+}
+
+.center{
+    display:block;
+    margin:0 auto;
+}
+
+.right{
+    padding-right: 30px;
+}

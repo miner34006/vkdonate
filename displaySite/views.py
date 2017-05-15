@@ -20,6 +20,11 @@ from Group import Group as vk_group
 
 ########################################################################################
 
+def newdesign(request):
+  return render_to_response('newDesign.html')
+
+
+
 #Главная страница
 def mainPage(request):
   # Проверяем авторизован ли пользователь
