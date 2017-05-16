@@ -1,11 +1,11 @@
 {% extends "contentPlusLeft.html" %}
 
 {% block mainInformation %}
-    <h1 class="page-header title">МОИ ГРУППЫ</h1>
+    <h1 class="page-header title">Мои группы</h1>
     <div class="row">
     {% for group in data %}
         <div class="col-xs-6 col-sm-3 group">
-            <a href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="190" height="190" class="img-responsive img-circle" alt="Generic placeholder thumbnail"></a>
+            <a href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="195" height="195" class="img-responsive img-circle" alt="Generic placeholder thumbnail"></a>
         </div>
     {% endfor %}
     </div>

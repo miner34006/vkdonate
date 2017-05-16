@@ -1,8 +1,16 @@
-{% extends "newDesign.html" %}
+{% extends "vkdonate.html" %}
 
 {% block content %}
     {% block header %} {% endblock %}
     {% block mainInformation %} {% endblock %}
+{% endblock %}
+
+{% block leftbar %}
+    <ul class="nav nav-sidebar text-center">
+        <li class="active"><a href="/donations/">Мои донаты<span class="sr-only">(current)</span></a></li>
+        <li><a href="/donaters/">Мои донатеры</a></li>
+        <li><a href="/groups/">Мои группы</a></li>
+    </ul>
 {% endblock %}
 
 {% block lastDonate %}

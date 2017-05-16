@@ -14,12 +14,12 @@ from django.contrib import auth
 from django.contrib.auth.models import User as SiteUser
 from django.http import HttpResponseNotFound
 from django.shortcuts import get_object_or_404
+from django.db.models import Avg
 
 from User import User as vk_user
 from Group import Group as vk_group
 
 ########################################################################################
-
 #Главная страница
 def mainPage(request):
   # Проверяем авторизован ли пользователь
@@ -51,25 +51,27 @@ def currentDonater(request, donater_id, pageNumber = 1):
     # Проверяем наличие донатера у пользователя (донатили ли пользователю донатеры)
     get_object_or_404(Donater.objects.filter(donater_id=donater_id, donater_admin=auth.get_user(request).username))
 
-    # Получем аватарку донатера
-    user = vk_user(donater_id)
-    image = user.getUser({'fields':'photo_200'})['photo_200']
-
     # Получаем все донаты, связанные с текущим донатером
     donationList = Donation.objects.filter(donation_donater = donater_id)
 
     # Пагинируем их по 10 штук
     paginator = Paginator(donationList, 10)
 
+    if Donation.objects.filter(donation_donater = donater_id).exists():
+      averageDonate = Donation.objects.filter(donation_donater = donater_id).aggregate(Avg('donation_size'))
+      averageDonate = round(averageDonate['donation_size__avg'], 1)
+    else:
+      averageDonate = 0
+
     return render_to_response('currentDonater.html',
       {'donater':Donater.objects.get(donater_id = donater_id),
        'donations':paginator.page(pageNumber),
        'paginator':paginator,
-       'image':image,
        'last_donate':Donation.objects.filter
           (donation_admin=auth.get_user(request).username)[:1],
-       'theBiggestSize': Donation.objects.filter(donation_donater = donater_id).order_by('-donation_size')[:1],
+       'theBiggestSize': Donation.objects.filter(donation_donater = donater_id).order_by('-donation_size')[:1].values(),
        'numberOfDonations':Donation.objects.filter(donation_donater = donater_id).count(),
+       'averageDonate':averageDonate,
        'user_id': auth.get_user(request).username})
 
   # Если пользователь не авторизован, перенаправялем его на главную страницу
@@ -85,27 +87,32 @@ def currentGroup(request, group_id, pageNumber = 1):
     #Проверяем наличие группы у пользователя (является ли он её админом)
     get_object_or_404(Group.objects.filter(group_admin=auth.get_user(request).username, group_id=group_id))
 
-    #Получем аватарку группы
-    group = vk_group(group_id)
-    image = group.getPhoto()
-
     #Получаем все донаты, связанные с текущей группой
     donationsList = Donation.objects.filter(donation_group=group_id)
 
     #Пагинируем их по 10 штук
     paginator = Paginator(donationsList, 10)
 
+    name = vk_group.getName(group_id)
+
+    if Donation.objects.filter(donation_group = group_id).exists():
+      averageDonate = Donation.objects.filter(donation_group = group_id).aggregate(Avg('donation_size'))
+      averageDonate = round(averageDonate['donation_size__avg'],1)
+    else:
+      averageDonate = 0
+
     return render_to_response('currentGroup.html',
-      {'image':image,
-       'id':group_id,
+      {'id':group_id,
        'group_summOfAllDonations':Group.objects.get(group_id = group_id).group_summOfAllDonations,
        'donations':paginator.page(pageNumber),
        'paginator':paginator,
+       'name':name,
        'last_donate': Donation.objects.filter
           (donation_admin=auth.get_user(request).username)[:1],
        'theBiggestSize': Donation.objects.filter(donation_group=group_id).order_by('-donation_size')[:1],
        'numberOfDonations': Donation.objects.filter(donation_group=group_id).count(),
-       'user_id': auth.get_user(request).username})
+       'user_id': auth.get_user(request).username,
+       'averageDonate':averageDonate})
 
   # Если пользователь не авторизован, перенаправялем его на главную страницу
   else:

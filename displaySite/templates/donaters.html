@@ -17,7 +17,7 @@
             <tbody>
                 {% for donater in donaters %}
                     <tr>
-                        <td class="number">000</td>
+                        <td class="number">{{ forloop.counter }}</td>
                         <td class="secondname"><a href="/currentDonater/get/{{ donater.donater_id }}">
                             {{ donater.donater_secondName }}</a>
                         </td>

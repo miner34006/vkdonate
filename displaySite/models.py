@@ -39,7 +39,7 @@ class Group(models.Model):
 
   group_id = models.IntegerField(primary_key=True)
   group_admin = models.ForeignKey(Admin)
-  group_summOfAllDonations = models.BigIntegerField(default= 0)
+  group_summOfAllDonations = models.FloatField(default= 0)
 
 ########################################################################################
 
@@ -56,7 +56,7 @@ class Donater(models.Model):
   donater_secondName = models.CharField(max_length=50, default='SecondName')
   donater_id = models.IntegerField(primary_key=True)
   donater_admin = models.ForeignKey(Admin)
-  donater_summOfAllDonations = models.BigIntegerField(default= 0)
+  donater_summOfAllDonations = models.FloatField(default= 0)
 
 ########################################################################################
 
@@ -71,7 +71,7 @@ class Donation(models.Model):
 
   donation_date = models.DateTimeField()
   donation_text = models.CharField(max_length=100)
-  donation_size = models.IntegerField()
+  donation_size = models.FloatField()
   donation_donater = models.ForeignKey(Donater)
   donation_group = models.ForeignKey(Group)
   donation_admin = models.ForeignKey(Admin)

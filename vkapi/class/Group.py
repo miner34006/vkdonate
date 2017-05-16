@@ -12,6 +12,12 @@ class Group:
     #Получение ID группы
     def getID(self):
         return self.__groupID
+
+    @staticmethod
+    def getName(id):
+      options = ({'group_id': id})
+      name = VK.getRequest("groups.getById", options)[0]["name"]
+      return name
     
     #Получение фото группы
     def getPhoto(self):
