@@ -41,3 +41,12 @@
     width: 200px;
     text-align: center;
 }
+
+.group{
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.my{
+    padding-right: 0px;
+}

@@ -4,7 +4,6 @@ from displaySite import views
 
 urlpatterns = [
     url(r'^$', views.mainPage),
-    url(r'^newdesign/$', views.newdesign),
     url(r'^groups/$', views.groups),
     url(r'^donations/$', views.donations),
     url(r'^donations/page/(\d+)/$', views.donations),
