@@ -14,11 +14,12 @@
 {% endblock %}
 
 {% block lastDonate %}
-    <ul class="nav nav-sidebar text-center">
+    <ul class="nav nav- text-center">
         <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><span>Последний донат</span></h4>
+            </div>
             <div class="panel-body">
-                <h4><span class="label label-info">Последний донат</span></h4>
-                <hr>
                 <p><span class="glyphicon glyphicon-calendar"></span>{{ last_donate.0.donation_date }}</p>
                 <p><span class="glyphicon glyphicon-rub"></span>{{ last_donate.0.donation_size }}</p>
                 <p><span class="glyphicon glyphicon-bullhorn"></span>   {{ last_donate.0.donation_text }}</p>
