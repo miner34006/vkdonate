@@ -32,7 +32,10 @@ class DonaterAdmin(admin.ModelAdmin):
 class GroupAdmin(admin.ModelAdmin):
   actions = [count_donations_for_group]
 
-admin.site.register(Donation)
+@admin.register(Donation)
+class donationAdmin(admin.ModelAdmin):
+    list_display = ["donation_donater", "donation_text", "donation_size", "donation_group"]
+
 admin.site.register(Donater, DonaterAdmin)
 admin.site.register(Admin)
 admin.site.register(Group, GroupAdmin)

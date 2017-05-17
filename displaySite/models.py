@@ -17,7 +17,7 @@ from Group import Group as vk_group
 
 class Admin(models.Model):
 
-  def __unicode__(self):
+  def __str__(self):
     return str(self.admin_id)
 
   class Meta():
@@ -31,7 +31,7 @@ class Admin(models.Model):
 
 class Group(models.Model):
 
-  def __unicode__(self):
+  def __str__(self):
     return str(self.group_id)
 
   class Meta():
@@ -45,8 +45,8 @@ class Group(models.Model):
 
 class Donater(models.Model):
 
-  def __unicode__(self):
-    return '%s %s' % (self.donater_firtstName, self.donater_secondName)
+  def __str__(self):
+    return '%s %s' % (self.donater_firtstName.encode('utf8'), self.donater_secondName.encode('utf8'))
 
   class Meta():
     db_table = "donater"
@@ -62,8 +62,8 @@ class Donater(models.Model):
 
 class Donation(models.Model):
 
-  def __unicode__(self):
-    return '%s' % (self.donation_text)
+  def __str__(self):
+    return '%s' % self.donation_text.encode('utf8')
 
   class Meta():
     db_table = "donation"
