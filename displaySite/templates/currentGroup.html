@@ -11,10 +11,10 @@
                 </div>
                 <div class="panel-body">
                     {% if group_summOfAllDonations == 0 %}
-                        <h1><strong>0</strong>
+                        <h1  class="pbody"><strong>0</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% else %}
-                        <h1><strong>{{group_summOfAllDonations}}</strong>
+                        <h1  class="pbody"><strong>{{group_summOfAllDonations}}</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% endif %}
                 </div>
@@ -27,7 +27,7 @@
                     <h2 class="panelup">Количество донатов</h2>
                 </div>
                 <div class="panel-body">
-                    <h1><strong>{{numberOfDonations}}</strong>
+                    <h1  class="pbody"><strong>{{numberOfDonations}}</strong>
                         <small><span class="glyphicon glyphicon-stats"></span></small></h1>
                 </div>
             </div>
@@ -40,10 +40,10 @@
                 </div>
                 <div class="panel-body">
                     {% if theBiggestSize %}
-                        <h1><strong>{{theBiggestSize.0.donation_size}}</strong>
+                        <h1  class="pbody"><strong>{{theBiggestSize.0.donation_size}}</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% else %}
-                        <h1><strong>0</strong>
+                        <h1  class="pbody"><strong>0</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% endif %}
                 </div>
@@ -55,8 +55,8 @@
                 <div class="panel-heading headinghead">
                     <h2 class="panelup">Средний донат</h2>
                 </div>
-                <div class="panel-body">
-                    <h1><strong>{{averageDonate}}</strong>
+                <div class="panel-body ">
+                    <h1 class="pbody"><strong>{{averageDonate}}</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                 </div>
             </div>
