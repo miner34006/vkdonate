@@ -65,8 +65,8 @@ def currentDonater(request, donater_id, pageNumber = 1):
 
     return render_to_response('currentDonater.html',
       {'donater':Donater.objects.get(donater_id = donater_id),
-       'donations':paginator.page(pageNumber),
-       'paginator':paginator,
+       'objects':paginator.page(pageNumber),
+       'pages':paginator.num_pages,
        'last_donate':Donation.objects.filter
           (donation_admin=auth.get_user(request).username)[:1],
        'theBiggestSize': Donation.objects.filter(donation_donater = donater_id).order_by('-donation_size')[:1].values(),
@@ -104,8 +104,8 @@ def currentGroup(request, group_id, pageNumber = 1):
     return render_to_response('currentGroup.html',
       {'id':group_id,
        'group_summOfAllDonations':Group.objects.get(group_id = group_id).group_summOfAllDonations,
-       'donations':paginator.page(pageNumber),
-       'paginator':paginator,
+       'objects':paginator.page(pageNumber),
+       'pages':paginator.num_pages,
        'name':name,
        'last_donate': Donation.objects.filter
           (donation_admin=auth.get_user(request).username)[:1],
@@ -144,8 +144,8 @@ def donaters(request, pageNumber = 1):
 
     return render_to_response\
       ('donaters.html',
-        {'donaters': paginator.page(pageNumber),
-         'paginator':paginator,
+        {'objects': paginator.page(pageNumber),
+         'pages': paginator.num_pages,
          'last_donate':Donation.objects.filter
             (donation_admin=auth.get_user(request).username)[:1],
          'user_id': auth.get_user(request).username})
@@ -179,8 +179,8 @@ def donations(request, pageNumber = 1):
 
     return render_to_response\
       ('donations.html',
-        {'donations':paginator.page(pageNumber),
-         'paginator':paginator,
+        {'objects':paginator.page(pageNumber),
+         'pages': paginator.num_pages,
          'last_donate':Donation.objects.filter
             (donation_admin=auth.get_user(request).username)[:1],
          'user_id':auth.get_user(request).username})
