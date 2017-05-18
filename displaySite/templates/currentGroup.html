@@ -5,16 +5,16 @@
     <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="page-header title hidden-xs">{{ name }}</h1></a>
     <div class="row">
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info heading">
-                <div class="panel-heading headinghead">
-                    <h2 class="panelup">Общий размер донатов</h2>
+            <div class="panel panel-info ">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><strong>Сумма донатов</strong></h2>
                 </div>
                 <div class="panel-body">
                     {% if group_summOfAllDonations == 0 %}
-                        <h1  class="pbody"><strong>0</strong>
+                        <h1  class="panelup"><strong>0</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% else %}
-                        <h1  class="pbody"><strong>{{group_summOfAllDonations}}</strong>
+                        <h1  class="panelup"><strong>{{group_summOfAllDonations}}</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% endif %}
                 </div>
@@ -22,28 +22,28 @@
         </div>
 
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info heading">
-                <div class="panel-heading headinghead">
-                    <h2 class="panelup">Количество донатов</h2>
+            <div class="panel panel-info  ">
+                <div class="panel-heading">
+                    <h2 class="panel-title"><strong>Количество донатов</strong></h2>
                 </div>
                 <div class="panel-body">
-                    <h1  class="pbody"><strong>{{numberOfDonations}}</strong>
+                    <h1  class="panelup"><strong>{{numberOfDonations}}</strong>
                         <small><span class="glyphicon glyphicon-stats"></span></small></h1>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info heading">
-                <div class="panel-heading headinghead">
-                    <h2 class="panelup">Самый большой донат</h2>
+            <div class="panel panel-info ">
+                <div class="panel-heading">
+                    <h2 class="panel-title "><strong>Наибольший донат</strong></h2>
                 </div>
                 <div class="panel-body">
                     {% if theBiggestSize %}
-                        <h1  class="pbody"><strong>{{theBiggestSize.0.donation_size}}</strong>
+                        <h1  class="panelup"><strong>{{theBiggestSize.0.donation_size}}</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% else %}
-                        <h1  class="pbody"><strong>0</strong>
+                        <h1  class="panelup"><strong>0</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                     {% endif %}
                 </div>
@@ -51,18 +51,18 @@
         </div>
 
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info heading">
-                <div class="panel-heading headinghead">
-                    <h2 class="panelup">Средний донат</h2>
+            <div class="panel panel-info ">
+                <div class="panel-heading ">
+                    <h2 class="panel-title"><strong>Средний донат</strong></h2>
                 </div>
                 <div class="panel-body ">
-                    <h1 class="pbody"><strong>{{averageDonate}}</strong>
+                    <h1 class="panelup"><strong>{{averageDonate}}</strong>
                         <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
                 </div>
             </div>
         </div>
-
     </div>
+
 {% endblock %}
 
 {% block mainInformation %}

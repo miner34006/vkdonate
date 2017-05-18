@@ -24,6 +24,7 @@
 
   </head>
   <body>
+
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -55,8 +56,7 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="container-fluid">
-      <div class="row">
+
           <div class="col-sm-3 col-md-2 sidebar">
 
               {% block leftbar %}  {% endblock %}
@@ -68,13 +68,12 @@
           <div class="col-sm-9  col-md-10">
 
               {% block content %} {% endblock %}
+              {% block paginator %} {% endblock %}
 
           </div>
 
-          {% block paginator %} {% endblock %}
 
-      </div>
-  </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
