@@ -20,29 +20,6 @@ from User import User as vk_user
 from Group import Group as vk_group
 
 ########################################################################################
-#Главная страница
-def mainPage(request):
-  # Проверяем авторизован ли пользователь
-  if auth.get_user(request).is_authenticated:
-
-    # Выводим 'особую' страницу, когда у пользователя нет донатов
-    if not Donation.objects.filter(donation_admin=
-      Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
-      return render_to_response('voidMain.html',
-        {'user_id': auth.get_user(request).username})
-
-    #Если пользователь авторизован и у него есть донаты, отправляем ему 'обычную' страницу
-    return render_to_response('mainPage.html',
-      {'last_donate':Donation.objects.filter
-        (donation_admin=auth.get_user(request).username)[:1],
-       'user_id': auth.get_user(request).username})
-
-  # Если пользователь не авторизован, ограничиваем информацию, расположенную на странице
-  else:
-    return render_to_response('voidMain.html',
-      {'user_id': auth.get_user(request).username})
-
-########################################################################################
 
 def currentDonater(request, donater_id, pageNumber = 1):
   # Проверяем авторизован ли пользователь
@@ -129,11 +106,8 @@ def donaters(request, pageNumber = 1):
     if not Donater.objects.filter(donater_admin=
       Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
       return render_to_response \
-        ('voidInfo.html',
-         {'user_id': auth.get_user(request).username,
-          'donater':True,
-          'donation': False,
-          'group': False})
+        ('donaters.html',
+         {'user_id': auth.get_user(request).username})
 
     # Получаем всех донатеров, связанных с текущим пользователем
     donaterList = Donater.objects.filter(donater_admin=
@@ -164,11 +138,8 @@ def donations(request, pageNumber = 1):
     if not Donation.objects.filter(donation_admin=
       Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
       return render_to_response \
-        ('voidInfo.html',
-         {'user_id': auth.get_user(request).username,
-          'donation':True,
-          'donater':False,
-          'group':False})
+        ('donations.html',
+         {'user_id': auth.get_user(request).username})
 
     #Получаем все донаты, связанные с текущим пользователем
     donationList = Donation.objects.filter(donation_admin=
@@ -196,48 +167,33 @@ def groups(request):
   if auth.get_user(request).is_authenticated:
 
     # Выводим 'особую' страницу, когда у пользователя нет групп
-    if not Group.objects.filter(group_admin=
-      Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
-      return render_to_response \
-        ('voidInfo.html',
-         {'user_id': auth.get_user(request).username,
-          'group': True,
-          'donation':False,
-          'donater':False,
-          'showLastDonate':False})
+    if not Group.objects.filter(group_admin=Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
+      return render_to_response ('groups.html',{'user_id': auth.get_user(request).username})
 
-    #Проверяем наличие групп у пользователя
-    if Group.objects.filter(group_admin=auth.get_user(request).username).exists():
+    #Получаем группы, связанные с админом
+    data = Group.objects.filter(group_admin=auth.get_user(request).username)
 
-      #Получаем группы, связанные с админом
-      data = Group.objects.filter(group_admin=auth.get_user(request).username)
+    # Получаем аватарки групп
+    links = {'data': []}
+    ids = []
+    for group in data.values():
+      ids.append(str(group["group_id"]))
+    ids = ','.join(ids)
+    array = vk_group.getGroupsImg(ids)
 
-      # Получаем аватарки групп
-      links = {'data': []}
-      ids = []
-      for group in data.values():
-        ids.append(str(group["group_id"]))
-      ids = ','.join(ids)
-      array = vk_group.getGroupsImg(ids)
+    #Добавляем ссылку на фото и id группы
+    for group in array:
+      links['data'].append({'link': group['img'], 'group_id': group['id']})
+    data = links
 
-      #Добавляем ссылку на фото и id группы
-      for group in array:
-        links['data'].append({'link': group['img'], 'group_id': group['id']})
-      data = links
+    #Добавляем последний донат
+    data.update({'last_donate': Donation.objects.filter
+      (donation_admin=auth.get_user(request).username)[:1]})
 
-      #Добавляем последний донат
-      data.update({'last_donate': Donation.objects.filter
-        (donation_admin=auth.get_user(request).username)[:1]})
+    #Добавляем аутентифицированного юзера
+    data.update({'user_id': auth.get_user(request).username})
 
-      #Добавляем аутентифицированного юзера
-      data.update({'user_id': auth.get_user(request).username})
-
-      return render_to_response('groups.html', data)
-
-    #Если у пользователя нет групп
-    else:
-      data = ({'user_id': auth.get_user(request).username})
-      return render_to_response('groups.html',data)
+    return render_to_response('groups.html', data)
 
   # Если пользователь не авторизован, перенаправялем его на главную страницу
   else:

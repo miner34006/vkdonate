@@ -1,6 +1,7 @@
-{% extends "contentPlusLeft.html" %}
+{% extends "content.html" %}
 
 {% block mainInformation %}
+    {% if data %}
     <h1 class="page-header title visible-xs text-center">Мои группы</h1>
     <h1 class="page-header title hidden-xs">Мои группы</h1>
     <div class="row">
@@ -11,4 +12,9 @@
         </div>
     {% endfor %}
     </div>
+    {% else %}
+        <div class="alert alert-warning col-md-7">
+              К сожалению, вы еще не добавили группы :( Вы можете сделать это в <a class="alert-link">настройках</a>!
+        </div>
+    {% endif %}
 {% endblock %}

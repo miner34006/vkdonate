@@ -55,11 +55,44 @@
 }
 
 .heading{
-    height: 117px;
+    height: 220px;
+}
+
+.headinghead{
+    height: 125px;
+}
+
+.panelup{
+    margin-top: 10px;
 }
 
 .headingtext{
     margin-top: 30px;
 }
 
+.article{
+    margin-bottom: 20px;
+}
+
+.articlein{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.articleTitle{
+    margin-top: 0px;
+}
+
+.articleText{
+    text-align: justify;
+}
+
+.articleTextin{
+    text-align: justify;
+}
+
+.articleright{
+    margin-top: 50px;
+}
 

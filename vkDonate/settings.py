@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'displaySite',
     'authorization',
+    'news',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -68,10 +69,12 @@ TEMPLATES = [
 		            '/home/django/vkdonate/templates',
                  '/home/django/vkdonate/displaySite/templates',
                  '/home/django/vkdonate/authorization/templates',
+                '/home/django/vkdonate/news/templates',
 
 		             '/home/bogdan/Documents/python/vkDonate/templates/',
                  '/home/bogdan/Documents/python/vkDonate/displaySite/templates/',
                  '/home/bogdan/Documents/python/vkDonate/authorization/templates/',
+                  '/home/bogdan/Documents/python/vkDonate/news/templates/',
                  ]
         ,
         'APP_DIRS': True,
@@ -147,6 +150,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 #Папка медиа-ресурсов для сайта
 MEDIA_ROOT = "/home/bogdan/Documents/python/vkDonate/media/"

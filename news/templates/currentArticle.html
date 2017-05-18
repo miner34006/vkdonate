@@ -1,0 +1,25 @@
+{% extends 'content.html' %}
+
+{% block mainInformation %}
+    <div class="row">
+        <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
+
+            <h1 class="page-header title text-center visible-xs">{{ article.article_title }}</h1>
+            <h1 class="page-header title hidden-xs">{{ article.article_title }}</h1>
+
+            <img class="img-rounded articlein" src="https://caktus-website-production-2015.s3.amazonaws.com/media/blog-images/python-logo-3.6.gif" alt="...">
+            <p class="articleTextin">{{ article.article_text }}</p>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 hidden-xs">
+            {% for article in last_articles %}
+            <div class="thumbnail articleright">
+                <div class="caption">
+                    <h1 class="text-center articleTitle">{{ article.article_title }}</h1>
+                    <img class="article img-rounded" src="https://caktus-website-production-2015.s3.amazonaws.com/media/blog-images/python-logo-3.6.gif" alt="...">
+                    <p><a href="/currentarticle/{{ article.id }}" class="btn btn-primary text-center" role="button">Подробнее</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'content.html' %}
+
+{% load staticfiles %}
+
+{% block mainInformation %}
+    <div class="row">
+    {% for article in articles %}
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-info">
+                <script src="{% static "js/dots.js" %}"></script>
+                <div class="panel-heading">
+                    <h1 class=" text-center">{{ article.article_title }}</h1>
+                </div>
+                <div class="panel-body">
+                    <img class="img-responsive img-responsive center-block" src="{{ article.article_image.url }}">
+                </div>
+
+                    <p class="tit text-center">{{ article.article_text }}</p>
+
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

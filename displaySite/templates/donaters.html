@@ -1,36 +1,40 @@
-{% extends "contentPlusLeft.html" %}
-<!-- Вывод всех донатов на страницу -->
+{% extends "content.html" %}
 
 {% block mainInformation %}
+    {% if objects %}
     <h1 class="page-header title hidden-xs">Мои донатеры</h1>
     <h1 class="page-header title visible-xs text-center">Мои донатеры</h1>
     <div class="table table-responsive">
         <table class="table table-striped table-bordered table table-condensed table-responsive">
             <thead>
-                <tr>
-                    <th class="number">#</th>
-                    <th class="secondname">Фамилия</th>
-                    <th class="firstname">Имя</th>
-                    <th class="id">ID</th>
-                    <th class="alldonationsize">Общий размер донатов</th>
+                <tr class="info">
+                    <th class="text-center ">#</th>
+                    <th class="text-center">Фамилия</th>
+                    <th class="text-center ">Имя</th>
+                    <th class="text-center ">ID</th>
+                    <th class="text-center ">Общий размер донатов</th>
                 </tr>
             </thead>
             <tbody>
                 {% for donater in objects %}
                     <tr>
-                        <td class="number">{{ forloop.counter }}</td>
-                        <td class="secondname"><a href="/currentDonater/get/{{ donater.donater_id }}">
+                        <td class="text-center">{{ forloop.counter }}</td>
+                        <td class="text-center"><a href="/currentDonater/get/{{ donater.donater_id }}">
                             {{ donater.donater_secondName }}</a>
                         </td>
-                        <td class="firstname">{{ donater.donater_firtstName }}</td>
-                        <td class="id"><a href="https://vk.com/id{{ donater.donater_id }}">
+                        <td class="text-center">{{ donater.donater_firtstName }}</td>
+                        <td class="text-center"><a href="https://vk.com/id{{ donater.donater_id }}">
                             {{donater.donater_id}}</a>
                         </td>
-                        <td class="alldonationsize">{{ donater.donater_summOfAllDonations }}</td>
+                        <td class="text-center">{{ donater.donater_summOfAllDonations }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    {% else %}
+        <div class="alert alert-warning col-md-4">
+              К сожалению, у Вас отсутствуют донатеры :(
+        </div>
+    {% endif %}
 {% endblock %}
-
