@@ -2,8 +2,8 @@
 
 {% block mainInformation %}
     {% if data %}
-    <h1 class="page-header title visible-xs text-center">Мои группы</h1>
-    <h1 class="page-header title hidden-xs">Мои группы</h1>
+    <h1 class="page-header title visible-xs visible-sm text-center">Мои группы</h1>
+    <h1 class="page-header title hidden-xs hidden-sm">Мои группы</h1>
     <div class="row">
     {% for group in data %}
         <div class="col-xs-6 col-sm-4 col-lg-2 col-md-3 group">
@@ -17,4 +17,16 @@
               К сожалению, вы еще не добавили группы :( Вы можете сделать это в <a class="alert-link">настройках</a>!
         </div>
     {% endif %}
+{% endblock %}
+
+{% block activeGroups %}
+    <li class="active">
+        <a href="/groups/" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-flag"></i>
+            Мои группы </a>
+
+        <a href="/groups/" class="hidden-sm hidden-xs">
+            <i class="glyphicon glyphicon-flag"></i>
+            Мои группы </a>
+    </li>
 {% endblock %}

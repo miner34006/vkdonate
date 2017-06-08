@@ -2,8 +2,8 @@
 
 {% block mainInformation %}
     {% if objects %}
-    <h1 class="page-header title hidden-xs">Мои донатеры</h1>
-    <h1 class="page-header title visible-xs text-center">Мои донатеры</h1>
+    <h1 class="page-header title hidden-xs hidden-sm">Мои донатеры</h1>
+    <h1 class="page-header title visible-xs visible-sm text-center">Мои донатеры</h1>
     <div class="table table-responsive">
         <table class="table table-striped table-bordered table table-condensed table-responsive">
             <thead>
@@ -37,4 +37,15 @@
               К сожалению, у Вас отсутствуют донатеры :(
         </div>
     {% endif %}
+{% endblock %}
+
+{% block activeDonaters %}
+    <li class="active">
+                <a href="/donaters/" class="visible-xs visible-sm text-center">
+                <i class="glyphicon glyphicon-ok"></i>
+                Мои донатеры </a>
+                <a href="/donaters/" class="hidden-xs hidden-sm">
+                <i class="glyphicon glyphicon-ok"></i>
+                Мои донатеры </a>
+    </li>
 {% endblock %}

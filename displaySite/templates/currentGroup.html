@@ -1,13 +1,14 @@
 {% extends "content.html" %}
 
 {% block header %}
-    <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="page-header title visible-xs text-center">{{ name }}</h1></a>
-    <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="page-header title hidden-xs">{{ name }}</h1></a>
+    <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="page-header title visible-xs visible-sm text-center">{{ name }}</h1></a>
+    <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="page-header title hidden-xs hidden-sm">{{ name }}</h1></a>
     <div class="row">
+
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
             <div class="panel panel-info ">
                 <div class="panel-heading">
-                    <h2 class="panel-title"><strong>Сумма донатов</strong></h2>
+                    <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
                 </div>
                 <div class="panel-body">
                     {% if group_summOfAllDonations == 0 %}
@@ -51,9 +52,9 @@
         </div>
 
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info ">
+            <div class="panel panel-info">
                 <div class="panel-heading ">
-                    <h2 class="panel-title"><strong>Средний донат</strong></h2>
+                    <h2 class="panel-title"><strong>Средний размер донат</strong></h2>
                 </div>
                 <div class="panel-body ">
                     <h1 class="panelup"><strong>{{averageDonate}}</strong>
@@ -61,13 +62,14 @@
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
+    <hr class="line">
 {% endblock %}
 
 {% block mainInformation %}
-    <h2 class="subheader visible-xs text-center">Донаты в группе</h2>
-    <h2 class="subheader hidden-xs">Донаты в группе</h2>
+    <h2 class="subheader visible-xs visible-sm text-center">Донаты в группе</h2>
+    <h2 class="subheader hidden-xs hidden-sm">Донаты в группе</h2>
     {% if objects %}
     <div class="table table-responsive">
         <table class="table table-striped table-bordered table table-condensed">
@@ -98,4 +100,16 @@
         <p class="hidden-xs">В этой группе вам еще никто не задонатил!</p>
         <p class="visible-xs text-center">В этой группе вам еще никто не задонатил!</p>
     {% endif %}
+{% endblock %}
+
+{% block activeGroups %}
+    <li class="active">
+        <a href="/groups/" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-flag"></i>
+            Мои группы </a>
+
+        <a href="/groups/" class="hidden-sm hidden-xs">
+            <i class="glyphicon glyphicon-flag"></i>
+            Мои группы </a>
+    </li>
 {% endblock %}

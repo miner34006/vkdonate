@@ -1,26 +1,20 @@
 {% extends "vkdonate.html" %}
 
 {% block content %}
+    <div class="col-md-12">
+    <div class="profile-content">
     {% block header %} {% endblock %}
     {% block mainInformation %} {% endblock %}
-{% endblock %}
-
-{% block leftbar %}
-    {% if user_id %}
-    <ul class="nav nav-sidebar text-center">
-        <li class="active"><a href="/donations/">Мои донаты<span class="sr-only">(current)</span></a></li>
-        <li><a href="/donaters/">Мои донатеры</a></li>
-        <li><a href="/groups/">Мои группы</a></li>
-    </ul>
-    {% endif %}
+    </div>
+    </div>
 {% endblock %}
 
 {% block lastDonate %}
     {% if user_id and last_donate %}
-    <ul class="nav nav- text-center">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4><span>Последний донат</span></h4>
+    <ul class="nav nav- text-center" style="margin-top: 20px">
+        <div class="panel">
+            <div class="panel-heading profile-usertitle-name">
+                Последний донат
             </div>
             <div class="panel-body">
                 <p><span class="glyphicon glyphicon-calendar"></span>{{ last_donate.0.donation_date }}</p>
@@ -107,4 +101,65 @@
       </nav>
     </div>
     {% endif %}
+{% endblock %}
+
+{% block profileSideBar %}
+    <div class="profile-sidebar">
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+            <ul class="nav">
+
+                {% block activeMain %}
+                <li>
+                    <a href="/" class="visible-xs visible-sm text-center">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Главная </a>
+
+                    <a href="/" class="hidden-sm hidden-xs">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Главная </a>
+                </li>
+                {% endblock %}
+
+                {% if user_id %}
+                {% block activeDonations %}
+                <li>
+                    <a href="/donations/" class="visible-sm visible-xs text-center">
+                    <i class="glyphicon glyphicon-user"></i>
+                    Мои донаты </a>
+
+                    <a href="/donations/" class="hidden-xs hidden-sm">
+                    <i class="glyphicon glyphicon-user"></i>
+                    Мои донаты </a>
+                </li>
+                {% endblock %}
+
+                {% block activeDonaters %}
+                <li>
+                    <a href="/donaters/" class="visible-xs visible-sm text-center">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Мои донатеры </a>
+
+                    <a href="/donaters/" class="hidden-xs hidden-sm">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    Мои донатеры </a>
+                </li>
+                {% endblock %}
+
+                {% block activeGroups %}
+                <li>
+                    <a href="/groups/" class="visible-xs visible-sm text-center">
+                    <i class="glyphicon glyphicon-flag"></i>
+                    Мои группы </a>
+
+                    <a href="/groups/" class="hidden-sm hidden-xs">
+                    <i class="glyphicon glyphicon-flag"></i>
+                    Мои группы </a>
+                </li>
+                {% endblock %}
+                {% endif %}
+            </ul>
+        </div>
+        <!-- END MENU -->
+    </div>
 {% endblock %}

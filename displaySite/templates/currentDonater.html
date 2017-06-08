@@ -2,8 +2,8 @@
 
 {% block header %}
     <a target="_blank" href="https://vk.com/id{{ donater.donater_id }}">
-        <h1 class="page-header title text-center visible-xs">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
-        <h1 class="page-header title hidden-xs">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
+        <h1 class="page-header title text-center visible-xs visible-sm">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
+        <h1 class="page-header title hidden-xs hidden-sm">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
     </a>
 
     <div class="row">
@@ -46,7 +46,7 @@
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h2 class="panel-title"><strong>Средний донат</strong></h2>
+                    <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
                 </div>
                 <div class="panel-body">
                     <h1  class="panelup"><strong>{{averageDonate}}</strong>
@@ -55,11 +55,12 @@
             </div>
         </div>
     </div>
+    <hr class="line">
 {% endblock %}
 
 {% block mainInformation %}
-    <h2 class="subheader visible-xs text-center">Донаты пользователя</h2>
-    <h2 class="subheader hidden-xs">Донаты пользователя</h2>
+    <h2 class="subheader visible-xs visible-sm text-center">Донаты пользователя</h2>
+    <h2 class="subheader hidden-xs hidden-sm">Донаты пользователя</h2>
     <div class="table table-responsive">
         <table class="table table-striped table-bordered table-condensed">
             <thead>
@@ -82,4 +83,15 @@
             </tbody>
         </table>
     </div>
+{% endblock %}
+
+{% block activeDonaters %}
+    <li class="active">
+                <a href="/donaters/" class="visible-xs visible-sm text-center">
+                <i class="glyphicon glyphicon-ok"></i>
+                Мои донатеры </a>
+                <a href="/donaters/" class="hidden-xs hidden-sm">
+                <i class="glyphicon glyphicon-ok"></i>
+                Мои донатеры </a>
+    </li>
 {% endblock %}

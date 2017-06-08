@@ -2,23 +2,34 @@
 
 {% load staticfiles %}
 
-{% block mainInformation %}
-    <div class="row">
+{% block news %}
     {% for article in articles %}
-        <div class="col-sm-12 col-md-6">
-            <div class="panel panel-info">
-                <script src="{% static "js/dots.js" %}"></script>
-                <div class="panel-heading">
-                    <h1 class=" text-center">{{ article.article_title }}</h1>
+        <div class="col-sm-12 col-md-12" style="margin-bottom: 30px">
+            <div class="profile-content">
+
+                <div class="visible-sm visible-xs text-center">
+                    <h1 class="articleTitle">{{ article.article_title }}</h1>
                 </div>
-                <div class="panel-body">
-                    <img class="img-responsive img-responsive center-block" src="{{ article.article_image.url }}">
+                <div class="hidden-xs hidden-sm">
+                    <h1 class="articleTitle">{{ article.article_title }}</h1>
                 </div>
 
-                    <p class="tit text-center">{{ article.article_text }}</p>
+                <img class="img-responsive img-responsive" style="margin-bottom: 15px" src="{{ article.article_image.url }}">
 
+                <p style="margin-bottom: 0px">{{ article.article_text }}</p>
             </div>
         </div>
     {% endfor %}
-    </div>
+{% endblock %}
+
+{% block activeMain %}
+    <li class="active">
+        <a href="/" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-home"></i>
+            Главная </a>
+
+        <a href="/" class="hidden-sm hidden-xs">
+            <i class="glyphicon glyphicon-home"></i>
+            Главная </a>
+    </li>
 {% endblock %}
