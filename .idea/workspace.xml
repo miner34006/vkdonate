@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8b54405-d56a-4465-baea-5aa7839989e2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/templates/content.html" afterPath="$PROJECT_DIR$/displaySite/templates/content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news/templates/news.html" afterPath="$PROJECT_DIR$/news/templates/news.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/templates/currentDonater.html" afterPath="$PROJECT_DIR$/displaySite/templates/currentDonater.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/templates/currentGroup.html" afterPath="$PROJECT_DIR$/displaySite/templates/currentGroup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/templates/donaters.html" afterPath="$PROJECT_DIR$/displaySite/templates/donaters.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/templates/donations.html" afterPath="$PROJECT_DIR$/displaySite/templates/donations.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/templates/groups.html" afterPath="$PROJECT_DIR$/displaySite/templates/groups.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,14 +36,64 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="content.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="content.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/displaySite/templates/content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1109">
+            <state relative-caret-position="1026">
               <caret line="156" column="21" lean-forward="false" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
               <folding>
                 <element signature="e#4323#4351#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="currentGroup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/displaySite/templates/currentGroup.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="112" column="13" lean-forward="false" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="donaters.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/displaySite/templates/donaters.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="48" column="17" lean-forward="false" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="donations.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/displaySite/templates/donations.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="groups.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/displaySite/templates/groups.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vkdonate.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/vkdonate.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,16 +182,16 @@
         <option value="$PROJECT_DIR$/news/models.py" />
         <option value="$PROJECT_DIR$/displaySite/urls.py" />
         <option value="$PROJECT_DIR$/displaySite/views.py" />
-        <option value="$PROJECT_DIR$/displaySite/templates/donaters.html" />
-        <option value="$PROJECT_DIR$/displaySite/templates/groups.html" />
         <option value="$PROJECT_DIR$/news/views.py" />
-        <option value="$PROJECT_DIR$/displaySite/templates/donations.html" />
-        <option value="$PROJECT_DIR$/displaySite/templates/currentGroup.html" />
-        <option value="$PROJECT_DIR$/displaySite/templates/currentDonater.html" />
         <option value="$PROJECT_DIR$/templates/vkdonate.html" />
         <option value="$PROJECT_DIR$/displaySite/static/css/style.css" />
         <option value="$PROJECT_DIR$/news/templates/news.html" />
         <option value="$PROJECT_DIR$/displaySite/templates/content.html" />
+        <option value="$PROJECT_DIR$/displaySite/templates/currentDonater.html" />
+        <option value="$PROJECT_DIR$/displaySite/templates/currentGroup.html" />
+        <option value="$PROJECT_DIR$/displaySite/templates/donaters.html" />
+        <option value="$PROJECT_DIR$/displaySite/templates/donations.html" />
+        <option value="$PROJECT_DIR$/displaySite/templates/groups.html" />
       </list>
     </option>
   </component>
@@ -880,22 +933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/displaySite/templates/donaters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="48" column="33" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="48" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/displaySite/templates/groups.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/displaySite/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -919,42 +956,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/displaySite/templates/donations.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/displaySite/templates/currentGroup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="56" column="66" lean-forward="false" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vkDonate/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/vkdonate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/displaySite/templates/currentDonater.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="48" column="74" lean-forward="false" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -982,13 +987,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/vkdonate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/displaySite/templates/currentDonater.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="94" column="17" lean-forward="false" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/displaySite/templates/content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1109">
+        <state relative-caret-position="1026">
           <caret line="156" column="21" lean-forward="false" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
           <folding>
             <element signature="e#4323#4351#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/displaySite/templates/currentGroup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="112" column="13" lean-forward="false" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/displaySite/templates/donaters.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="48" column="17" lean-forward="false" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/displaySite/templates/donations.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="42" column="13" lean-forward="false" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/displaySite/templates/groups.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
