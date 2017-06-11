@@ -12,11 +12,11 @@
                 </div>
                 <div class="panel-body">
                     {% if group_summOfAllDonations == 0 %}
-                        <h1  class="panelup"><strong>0</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
+                        <h2  class="panelup"><strong>0</strong>
+                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
                     {% else %}
-                        <h1  class="panelup"><strong>{{group_summOfAllDonations}}</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
+                        <h2  class="panelup"><strong>{{group_summOfAllDonations}}</strong>
+                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
                     {% endif %}
                 </div>
             </div>
@@ -28,8 +28,8 @@
                     <h2 class="panel-title"><strong>Количество донатов</strong></h2>
                 </div>
                 <div class="panel-body">
-                    <h1  class="panelup"><strong>{{numberOfDonations}}</strong>
-                        <small><span class="glyphicon glyphicon-stats"></span></small></h1>
+                    <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
+                        <small><span class="glyphicon glyphicon-stats"></span></small></h2>
                 </div>
             </div>
         </div>
@@ -37,15 +37,15 @@
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
             <div class="panel panel-info ">
                 <div class="panel-heading">
-                    <h2 class="panel-title "><strong>Наибольший донат</strong></h2>
+                    <h2 class="panel-title "><strong>Самый большой донат</strong></h2>
                 </div>
                 <div class="panel-body">
                     {% if theBiggestSize %}
-                        <h1  class="panelup"><strong>{{theBiggestSize.0.donation_size}}</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
+                        <h2  class="panelup"><strong>{{theBiggestSize.0.donation_size}}</strong>
+                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
                     {% else %}
-                        <h1  class="panelup"><strong>0</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
+                        <h2  class="panelup"><strong>0</strong>
+                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
                     {% endif %}
                 </div>
             </div>
@@ -54,11 +54,11 @@
         <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
             <div class="panel panel-info">
                 <div class="panel-heading ">
-                    <h2 class="panel-title"><strong>Средний размер донат</strong></h2>
+                    <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
                 </div>
                 <div class="panel-body ">
-                    <h1 class="panelup"><strong>{{averageDonate}}</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h1>
+                    <h2 class="panelup"><strong>{{averageDonate}}</strong>
+                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
     <h2 class="subheader visible-xs visible-sm text-center">Донаты в группе</h2>
     <h2 class="subheader hidden-xs hidden-sm">Донаты в группе</h2>
     {% if objects %}
-    <div class="table table-responsive">
+    <div class="table table-responsive" style="margin-bottom: 0px">
         <table class="table table-striped table-bordered table table-condensed">
             <thead>
                 <tr class="info">

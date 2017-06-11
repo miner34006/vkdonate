@@ -44,6 +44,7 @@ def currentDonater(request, donater_id, pageNumber = 1):
       {'donater':Donater.objects.get(donater_id = donater_id),
        'objects':paginator.page(pageNumber),
        'pages':paginator.num_pages,
+       'objectName': "currentDonater/get/%s" % donater_id,
        'last_donate':Donation.objects.filter
           (donation_admin=auth.get_user(request).username)[:1],
        'theBiggestSize': Donation.objects.filter(donation_donater = donater_id).order_by('-donation_size')[:1].values(),
@@ -83,6 +84,7 @@ def currentGroup(request, group_id, pageNumber = 1):
        'group_summOfAllDonations':Group.objects.get(group_id = group_id).group_summOfAllDonations,
        'objects':paginator.page(pageNumber),
        'pages':paginator.num_pages,
+       'objectName': "currentGroup/get/%s" % group_id,
        'name':name,
        'last_donate': Donation.objects.filter
           (donation_admin=auth.get_user(request).username)[:1],
@@ -120,6 +122,7 @@ def donaters(request, pageNumber = 1):
       ('donaters.html',
         {'objects': paginator.page(pageNumber),
          'pages': paginator.num_pages,
+         'objectName' : "donaters",
          'last_donate':Donation.objects.filter
             (donation_admin=auth.get_user(request).username)[:1],
          'user_id': auth.get_user(request).username})
@@ -152,6 +155,7 @@ def donations(request, pageNumber = 1):
       ('donations.html',
         {'objects':paginator.page(pageNumber),
          'pages': paginator.num_pages,
+         'objectName': "donations",
          'last_donate':Donation.objects.filter
             (donation_admin=auth.get_user(request).username)[:1],
          'user_id':auth.get_user(request).username})
