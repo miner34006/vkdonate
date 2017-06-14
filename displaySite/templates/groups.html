@@ -1,32 +1,39 @@
 {% extends "content.html" %}
 
-{% block mainInformation %}
-    {% if data %}
-    <h1 class="page-header title visible-xs visible-sm text-center">Мои группы</h1>
-    <h1 class="page-header title hidden-xs hidden-sm">Мои группы</h1>
-    <div class="row">
-    {% for group in data %}
-        <div class="col-xs-6 col-sm-4 col-lg-2 col-md-3 group">
-            <a class="visible-xs" href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="195" height="195" class="img-responsive img-circle center" alt="Generic placeholder thumbnail"></a>
-            <a class="hidden-xs" href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="195" height="195" class="img-responsive img-circle" alt="Generic placeholder thumbnail"></a>
-        </div>
-    {% endfor %}
+{% block tableData %}
+  <div class="profile-content border">
+  <h1 class="visible-xs visible-sm text-center tableTitle">Мои группы</h1>
+  <h1 class="hidden-xs hidden-sm tableTitle">Мои группы</h1>
+  {% if data %}
+    <hr class="hrGroup">
+  {% endif %}
+  {% if data %}
+  <div class="row">
+  {% for group in data %}
+    <div class="col-xs-6 col-sm-4 col-lg-2 col-md-3 group">
+      <a class="visible-xs" href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="195" height="195" class="img-responsive img-circle center" alt="Generic placeholder thumbnail"></a>
+      <a class="hidden-xs" href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="195" height="195" class="img-responsive img-circle" alt="Generic placeholder thumbnail"></a>
     </div>
-    {% else %}
-        <div class="alert alert-warning col-md-7">
-              К сожалению, вы еще не добавили группы :( Вы можете сделать это в <a class="alert-link">настройках</a>!
-        </div>
-    {% endif %}
+  {% endfor %}
+  </div>
+  {% else %}
+    <div class="noDonation">
+      <p>К сожалению, Вы еще не добавили группы :( Вы можете сделать это в <a class="alert-link">настройках</a>!</p>
+    </div>
+  {% endif %}
+  </div>
 {% endblock %}
 
 {% block activeGroups %}
-    <li class="active">
-        <a href="/groups/" class="visible-xs visible-sm text-center">
-            <i class="glyphicon glyphicon-flag"></i>
-            Группы </a>
+  <li class="active">
+    <a href="/groups/" class="visible-xs visible-sm text-center">
+      <i class="glyphicon glyphicon-flag"></i>
+      Группы
+    </a>
 
-        <a href="/groups/" class="hidden-sm hidden-xs">
-            <i class="glyphicon glyphicon-flag"></i>
-            Группы </a>
-    </li>
+    <a href="/groups/" class="hidden-sm hidden-xs">
+      <i class="glyphicon glyphicon-flag"></i>
+      Группы
+    </a>
+  </li>
 {% endblock %}

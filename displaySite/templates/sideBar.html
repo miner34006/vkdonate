@@ -1,0 +1,108 @@
+{% extends "vkdonate.html" %}
+
+{% block sideControl %}
+  <div class="profile-sidebar border hidden-xs">
+    <!-- SIDEBAR MENU -->
+    <div class="profile-usermenu">
+      <ul class="nav">
+        {% block activeMain %}
+        <li>
+          <a href="/" class="visible-xs visible-sm text-center">
+          <i class="glyphicon glyphicon-home"></i>
+          Главная </a>
+
+          <a href="/" class="hidden-sm hidden-xs">
+          <i class="glyphicon glyphicon-home"></i>
+          Главная </a>
+        </li>
+        {% endblock %}
+
+        {% if user_id %}
+        {% block activeDonations %}
+          <li>
+            <a href="/donations/" class="visible-sm visible-xs text-center">
+            <i class="glyphicon glyphicon-gift"></i>
+            Донаты </a>
+
+            <a href="/donations/" class="hidden-xs hidden-sm">
+            <i class="glyphicon glyphicon-gift"></i>
+            Донаты </a>
+          </li>
+        {% endblock %}
+
+        {% block activeDonaters %}
+          <li>
+            <a href="/donaters/" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-user"></i>
+            Донатеры </a>
+
+            <a href="/donaters/" class="hidden-xs hidden-sm">
+            <i class="glyphicon glyphicon-user"></i>
+            Донатеры </a>
+          </li>
+        {% endblock %}
+
+        {% block activeGroups %}
+          <li>
+            <a href="/groups/" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-flag"></i>
+            Группы </a>
+
+            <a href="/groups/" class="hidden-sm hidden-xs">
+            <i class="glyphicon glyphicon-flag"></i>
+            Группы </a>
+          </li>
+        {% endblock %}
+
+          <li>
+            <a href="#" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-cog"></i>
+            Настройки </a>
+
+            <a href="#" class="hidden-sm hidden-xs">
+            <i class="glyphicon glyphicon-cog"></i>
+            Настройки </a>
+          </li>
+
+          <li>
+            <a href="#" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-stats"></i>
+            Статистика </a>
+
+            <a href="#" class="hidden-sm hidden-xs">
+            <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i>
+            Статистика </a>
+          </li>
+
+          <li>
+            <a href="#" class="visible-xs visible-sm text-center">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            О проекте</a>
+
+            <a href="#" class="hidden-sm hidden-xs">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            О проекте</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+    <!-- END MENU -->
+  </div>
+{% endblock %}
+
+{% block lastDonate %}
+  {% if user_id and last_donate %}
+    <ul class="nav text-center lastDonate">
+      <div class="panel">
+        <div class="panel-heading">
+          <p> Последний донат </p>
+        </div>
+        <div class="panel-body">
+          <p><span class="glyphicon glyphicon-rub"></span>{{ last_donate.0.donation_size }}</p>
+          <p><span class="glyphicon glyphicon-bullhorn"></span>   {{ last_donate.0.donation_text }}</p>
+          <p><span class="glyphicon glyphicon-calendar"></span>{{ last_donate.0.donation_date }}</p>
+        </div>
+      </div>
+    </ul>
+  {% endif %}
+{% endblock %}

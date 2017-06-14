@@ -1,115 +1,120 @@
 {% extends "content.html" %}
 
-{% block header %}
-    <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="page-header title visible-xs visible-sm text-center">{{ name }}</h1></a>
-    <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="page-header title hidden-xs hidden-sm">{{ name }}</h1></a>
-    <div class="row">
+{% block quickOverview %}
+  <div class="profile-content-for-current border">
+  <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="visible-xs visible-sm text-center panelTitle">{{ name }}</h1></a>
+  <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="hidden-xs hidden-sm panelTitle">{{ name }}</h1></a>
+  <hr class="line">
 
-        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info ">
-                <div class="panel-heading">
-                    <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
-                </div>
-                <div class="panel-body">
-                    {% if group_summOfAllDonations == 0 %}
-                        <h2  class="panelup"><strong>0</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-                    {% else %}
-                        <h2  class="panelup"><strong>{{group_summOfAllDonations}}</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-                    {% endif %}
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+      <div class="myPanel">
+        <div class="panelHead">
+          <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
         </div>
-
-        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info  ">
-                <div class="panel-heading">
-                    <h2 class="panel-title"><strong>Количество донатов</strong></h2>
-                </div>
-                <div class="panel-body">
-                    <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
-                        <small><span class="glyphicon glyphicon-stats"></span></small></h2>
-                </div>
-            </div>
+        <div class="panel-body">
+          {% if group_summOfAllDonations == 0 %}
+            <h2  class="panelup"><strong>0</strong>
+            <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+          {% else %}
+            <h2  class="panelup"><strong>{{group_summOfAllDonations}}</strong>
+            <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+          {% endif %}
         </div>
-
-        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info ">
-                <div class="panel-heading">
-                    <h2 class="panel-title "><strong>Самый большой донат</strong></h2>
-                </div>
-                <div class="panel-body">
-                    {% if theBiggestSize %}
-                        <h2  class="panelup"><strong>{{theBiggestSize.0.donation_size}}</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-                    {% else %}
-                        <h2  class="panelup"><strong>0</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-            <div class="panel panel-info">
-                <div class="panel-heading ">
-                    <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
-                </div>
-                <div class="panel-body ">
-                    <h2 class="panelup"><strong>{{averageDonate}}</strong>
-                        <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
-    <hr class="line">
+
+    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+      <div class="myPanel">
+        <div class="panelHead">
+          <h2 class="panel-title"><strong>Количество донатов</strong></h2>
+        </div>
+        <div class="panel-body">
+          <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
+            <small><span class="glyphicon glyphicon-stats"></span></small></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+      <div class="myPanel">
+        <div class="panelHead">
+            <h2 class="panel-title "><strong>Самый большой донат</strong></h2>
+        </div>
+        <div class="panel-body">
+          {% if theBiggestSize %}
+            <h2  class="panelup"><strong>{{theBiggestSize.0.donation_size}}</strong>
+            <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+          {% else %}
+            <h2  class="panelup"><strong>0</strong>
+            <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+      <div class="myPanel">
+        <div class="panelHead">
+          <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
+        </div>
+        <div class="panel-body ">
+          <h2 class="panelup"><strong>{{averageDonate}}</strong>
+            <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 {% endblock %}
 
-{% block mainInformation %}
-    <h2 class="subheader visible-xs visible-sm text-center">Донаты в группе</h2>
-    <h2 class="subheader hidden-xs hidden-sm">Донаты в группе</h2>
-    {% if objects %}
-    <div class="table table-responsive" style="margin-bottom: 0px">
-        <table class="table table-striped table-bordered table table-condensed">
-            <thead>
-                <tr class="info">
-                    <th class="text-center ">#</th>
-                    <th class="text-center ">Дата</th>
-                    <th class="text-center ">ID</th>
-                    <th class="text-center ">Размер</th>
-                    <th class="text-center ">Текст</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for donation in objects %}
-                    <tr>
-                        <td class="text-center">{{ forloop.counter }}</td>
-                        <td class="text-center">{{ donation.donation_date }}</td>
-                        <td class="text-center"><a href="/currentDonater/get/{{ donation.donation_donater.donater_id }}">
-                        {{ donation.donation_donater.donater_id }}</a></td>
-                        <td class="text-center">{{ donation.donation_size }}</td>
-                        <td class="text-center">{{donation.donation_text}}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+{% block tableData %}
+  <div class="profile-content border">
+  <h2 class="visible-xs visible-sm text-center tableTitle">Донаты в группе</h2>
+  <h2 class="hidden-xs hidden-sm tableTitle">Донаты в группе</h2>
+  {% if objects %}
+  <div class="table-responsive myTable">
+    <table class="table table-hover myTable">
+      <thead>
+        <tr class="tableHead">
+          <th>#</th>
+          <th>Дата</th>
+          <th>ID</th>
+          <th>Размер</th>
+          <th>Текст</th>
+        </tr>
+      </thead>
+      <tbody class="tableBody">
+        {% for donation in objects %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ donation.donation_date }}</td>
+            <td class="text-center"><a href="/currentDonater/get/{{ donation.donation_donater.donater_id }}">
+            {{ donation.donation_donater.donater_id }}</a></td>
+            <td>{{ donation.donation_size }}</td>
+            <td>{{donation.donation_text}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <div class="noDonation">
+      <p class="hidden-xs">В этой группе Вам еще никто не задонатил!</p>
+      <p class="visible-xs text-center">В этой группе Вам еще никто не задонатил!</p>
     </div>
-    {% else %}
-        <p class="hidden-xs">В этой группе вам еще никто не задонатил!</p>
-        <p class="visible-xs text-center">В этой группе вам еще никто не задонатил!</p>
-    {% endif %}
+  {% endif %}
+  </div>
 {% endblock %}
 
 {% block activeGroups %}
-    <li class="active">
-        <a href="/groups/" class="visible-xs visible-sm text-center">
-            <i class="glyphicon glyphicon-flag"></i>
-            Группы </a>
+  <li class="active">
+    <a href="/groups/" class="visible-xs visible-sm text-center">
+      <i class="glyphicon glyphicon-flag"></i>
+      Группы </a>
 
-        <a href="/groups/" class="hidden-sm hidden-xs">
-            <i class="glyphicon glyphicon-flag"></i>
-            Группы </a>
-    </li>
+    <a href="/groups/" class="hidden-sm hidden-xs">
+      <i class="glyphicon glyphicon-flag"></i>
+      Группы </a>
+  </li>
 {% endblock %}

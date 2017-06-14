@@ -42,24 +42,12 @@
     text-align: center;
 }
 
-.group{
-    margin-bottom: 30px;
-}
-
 .my{
     padding-right: 0px;
 }
 
-.tabletitle{
-    background-color: #c7ddef;
-}
-
 .heading{
     height: 220px;
-}
-
-.headinghead{
-
 }
 
 .panelup{
@@ -104,15 +92,6 @@
     margin-top: 0px;
 }
 
-.lastdonate{
-    margin-top: 20px;
-}
-
-
-
-
-
-
 
 /***
 User Profile Sidebar by @keenthemes
@@ -121,7 +100,7 @@ Licensed under MIT
 ***/
 
 body {
-  background: #F1F3FA;
+  background: #edeef0;
 }
 
 /* Profile container */
@@ -131,8 +110,9 @@ body {
 
 /* Profile sidebar */
 .profile-sidebar {
-  padding: 10px 0 10px 0;
-  background: #fff;
+  padding: 5px 0 5px 0;
+  margin-bottom: 15px;
+  background: white;
 }
 
 .profile-usertitle-name {
@@ -155,7 +135,7 @@ body {
 }
 
 .profile-usermenu ul li a {
-  color: #93a3b5;
+  color: #285473;
   font-size: 14px;
   font-weight: 400;
 }
@@ -166,8 +146,7 @@ body {
 }
 
 .profile-usermenu ul li a:hover {
-  background-color: #fafcfd;
-  color: #5b9bd1;
+  background-color: #F0F2F5;
 }
 
 .profile-usermenu ul li.active {
@@ -176,14 +155,21 @@ body {
 
 .profile-usermenu ul li.active a {
   color: #5b9bd1;
-  background-color: #f6f9fb;
-  border-left: 2px solid #5b9bd1;
+  background-color: #F0F2F5;
+  border-left: 2px solid #6285AF;
   margin-left: -2px;
 }
 
-/* Profile Content */
 .profile-content {
-  padding: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: #fff;
+}
+
+.profile-content-for-current {
+  padding: 20px;
+  padding-bottom: 0px;
+  margin-bottom: 15px;
   background: #fff;
 }
 
@@ -194,3 +180,269 @@ body {
 .podspisok{
     height: 100%;
 }
+
+
+
+
+.noDonation p{
+  border-left: 4px solid #6285AF;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  font-weight: normal;
+  font-size: medium;
+}
+
+@media screen and (max-width: 970px)  {
+  .noDonation p{
+    border-left: none;
+    text-align: center;
+  }
+}
+
+.noData {
+  border: 1px solid #dae1e8;
+  border-left: 4px solid #6285AF;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.noData > p{
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.article {
+  border: 1px solid #dae1e8;
+  margin-bottom: 15px;
+  padding: 20px;
+  background: #fff;
+}
+
+.article > p {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-left: 2px solid #6285AF;
+  font-size: 16px;
+  margin-bottom: 0px;
+  padding-left: 10px;
+}
+
+.lastDonate{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #dae1e8;
+}
+
+.lastDonate > .panel{
+  margin-bottom: 0px;
+}
+
+.lastDonate > .panel > .panel-heading{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.lastDonate > .panel > .panel-body{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.panel-heading > p{
+  color: #285473;
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.border {
+  border: 1px solid #dae1e8;
+}
+
+.main{
+  padding-left: 0px;
+  margin-top: 65px;
+}
+
+.sidebar{
+  margin-top: 65px;
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+      padding-left: 15px;
+      margin-top: 0px;
+    }
+}
+
+.myNavbar{
+  margin-bottom: 15px;
+}
+
+.panelTitle{
+  color: #45668e;
+  margin-top: 0px;
+}
+
+/* стили таблицы */
+
+.tableTitle{
+  margin-top: 0px;
+}
+
+.tableHead{
+  background-color: #F0F2F5;
+}
+
+.myTable{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.tableHead th{
+  text-align: center;
+}
+
+.tableBody td{
+  text-align: center;
+}
+
+.tableBody a{
+  color: #336BAB;
+  font-weight: 700;
+}
+
+/* конец стилей таблицы */
+
+/* стили групп */
+
+.group{
+  margin-top: 15px;
+}
+
+.hrGroup{
+  margin:0px;
+  margin-bottom: 0px;
+}
+
+/* конец стилей групп */
+
+/* стили панелей */
+
+.myPanel{
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #dae1e8;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panelHead{
+  padding: 10px 15px;
+  border-bottom: 1px solid #dae1e8;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: #F0F2F5;
+}
+
+/* конец стилей панелей */
+
+/* стили navbar */
+
+.navbarHead{
+  padding-left: 8.5%;
+}
+
+@media screen and (max-width: 992px){
+   .navbarHead{
+     padding-left: 0px;
+     margin-left: 0px;
+   }
+  .navbarHead a{
+     padding-left: 15px;
+     margin-left: 0px;
+   }
+}
+
+@media screen and (max-width: 768px){
+   .navbarHead{
+     padding-left: 0px;
+   }
+  .navbarHead a{
+     padding-left:15px;
+   }
+}
+
+.collapse ul li > a{
+  color: #fff;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 992px){
+  .collapse ul{
+     margin-right:7.5%;
+   }
+}
+
+.navbar-default {
+  background-color: #507299;
+}
+
+.navbar-default .navbar-brand {
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #fff;
+}
+
+/* Цвет пунктов навигационного меню */
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+/* Цвет пункта меню, при поднесении к нему курсора мышки или при его нахождении в фокусе */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+}
+
+nav > div >div > ul > li > a {
+  color: #fff;
+  font-size: medium;
+  font-weight: 700;
+}
+
+nav > div >div > ul > div >li > a {
+  color: #fff;
+  font-weight: 700;
+}
+
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #405F85;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+/* конец стилей navbar */

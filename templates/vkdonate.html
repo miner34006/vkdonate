@@ -24,56 +24,20 @@
 
   </head>
   <body>
+    {% include "navbar.html" %}
 
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">VKDonate</a>
+    {# Левый сайд-бар #}
+    <div class="col-md-2 col-sm-3 col-md-offset-1 sidebar">
+      {% block sideControl %} {% endblock %}
+      {% block lastDonate %}{% endblock %}
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Настройки <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Статистика</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Информация <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">О нас</a></li>
-            <li><a href="#">Контакты</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        {% if user_id %}
-            <li><a href="/auth/logout/">Выйти({{ user_id }})</a></li>
-        {% else %}
-            <li><a href="https://oauth.vk.com/authorize?client_id=6020313&display=page&redirect_uri=http://vkdonate.ru/auth/callback/&scope=groups,photos,offline&response_type=code&v=5.64">Войти</a></li>
-        {% endif %}
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-  <div class="col-md-2 col-sm-12 col-md-offset-1">
-    {% block profileSideBar %} {% endblock %}
-    {% block lastDonate %}{% endblock %}
-  </div>
-
-  <div class="col-xs-12 col-sm-12  col-md-8">
-    {% block news %}
-        {% block content %} {% endblock %}
-        {% block paginator %} {% endblock %}
-    {% endblock %}
-  </div>
+    {# Основной блок #}
+    <div class="col-xs-12 col-sm-9 col-md-8 main">
+      {% block data %} {% endblock %}
+      {% include "paginator.html" %}
+      {% block news %} {% endblock %}
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
