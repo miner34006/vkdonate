@@ -7,11 +7,9 @@
       <ul class="nav">
         {% block activeMain %}
         <li>
-          <a href="/" class="visible-xs visible-sm text-center">
-          <i class="glyphicon glyphicon-home"></i>
-          Главная </a>
 
-          <a href="/" class="hidden-sm hidden-xs">
+
+          <a href="/" class="">
           <i class="glyphicon glyphicon-home"></i>
           Главная </a>
         </li>
@@ -20,11 +18,9 @@
         {% if user_id %}
         {% block activeDonations %}
           <li>
-            <a href="/donations/" class="visible-sm visible-xs text-center">
-            <i class="glyphicon glyphicon-gift"></i>
-            Донаты </a>
 
-            <a href="/donations/" class="hidden-xs hidden-sm">
+
+            <a href="/donations/" class="">
             <i class="glyphicon glyphicon-gift"></i>
             Донаты </a>
           </li>
@@ -32,11 +28,9 @@
 
         {% block activeDonaters %}
           <li>
-            <a href="/donaters/" class="visible-xs visible-sm text-center">
-            <i class="glyphicon glyphicon-user"></i>
-            Донатеры </a>
 
-            <a href="/donaters/" class="hidden-xs hidden-sm">
+
+            <a href="/donaters/" class="">
             <i class="glyphicon glyphicon-user"></i>
             Донатеры </a>
           </li>
@@ -44,42 +38,34 @@
 
         {% block activeGroups %}
           <li>
-            <a href="/groups/" class="visible-xs visible-sm text-center">
-            <i class="glyphicon glyphicon-flag"></i>
-            Группы </a>
 
-            <a href="/groups/" class="hidden-sm hidden-xs">
+
+            <a href="/groups/" class="">
             <i class="glyphicon glyphicon-flag"></i>
             Группы </a>
           </li>
         {% endblock %}
 
           <li>
-            <a href="#" class="visible-xs visible-sm text-center">
-            <i class="glyphicon glyphicon-cog"></i>
-            Настройки </a>
 
-            <a href="#" class="hidden-sm hidden-xs">
+
+            <a href="#" class="">
             <i class="glyphicon glyphicon-cog"></i>
             Настройки </a>
           </li>
 
           <li>
-            <a href="#" class="visible-xs visible-sm text-center">
-            <i class="glyphicon glyphicon-stats"></i>
-            Статистика </a>
 
-            <a href="#" class="hidden-sm hidden-xs">
+
+            <a href="#" class="">
             <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i>
             Статистика </a>
           </li>
 
           <li>
-            <a href="#" class="visible-xs visible-sm text-center">
-            <i class="glyphicon glyphicon-info-sign"></i>
-            О проекте</a>
 
-            <a href="#" class="hidden-sm hidden-xs">
+
+            <a href="#" class="">
             <i class="glyphicon glyphicon-info-sign"></i>
             О проекте</a>
           </li>

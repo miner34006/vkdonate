@@ -79,7 +79,7 @@
         {% for donation in objects %}
           <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ donation.donation_date }}</td>
+            <td>{{ donation.donation_date|date:"SHORT_DATE_FORMAT" }}</td>
             <td>{{ donation.donation_size }}</td>
             <td>{{donation.donation_text}}</td>
           </tr>
@@ -87,6 +87,7 @@
       </tbody>
     </table>
   </div>
+    {% include "paginator.html" %}
   {% else %}
     <div class="noDonation">
       <p class="hidden-xs">Этот человек Вам не донатил!</p>
@@ -98,10 +99,7 @@
 
 {% block activateDonater %}
   <li class="active">
-    <a href="/donaters/" class="visible-xs visible-sm text-center">
-      <i class="glyphicon glyphicon-user"></i>
-      Донатеры </a>
-    <a href="/donaters/" class="hidden-xs hidden-sm">
+    <a href="/donaters/" class="">
       <i class="glyphicon glyphicon-user"></i>
       Донатеры </a>
   </li>

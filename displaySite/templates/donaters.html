@@ -33,6 +33,7 @@
       </tbody>
     </table>
   </div>
+    {% include "paginator.html" %}
   {% else %}
     <div class="noDonation">
       <p>К сожалению, у Вас отсутствуют <b> донатеры </b> :( </p>
@@ -43,11 +44,7 @@
 
 {% block activeDonaters %}
   <li class="active">
-    <a href="/donaters/" class="visible-xs visible-sm text-center">
-      <i class="glyphicon glyphicon-user"></i>
-      Донатеры
-    </a>
-    <a href="/donaters/" class="hidden-xs hidden-sm">
+    <a href="/donaters/" class="">
       <i class="glyphicon glyphicon-user"></i>
       Донатеры
     </a>

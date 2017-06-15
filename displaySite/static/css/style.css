@@ -267,11 +267,23 @@ body {
   margin-top: 65px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .main {
-      padding-left: 15px;
+      padding-left: 0px;
+      padding-right: 0px;
       margin-top: 0px;
     }
+
+    .sidebar{
+      padding-left: 0px;
+      padding-right: 0px;
+   }
+}
+
+@media screen and (min-width:992px) and (max-width:1200px) {
+  .nav li{
+    text-align: center;
+  }
 }
 
 .myNavbar{
@@ -281,6 +293,10 @@ body {
 .panelTitle{
   color: #45668e;
   margin-top: 0px;
+}
+
+.pagination{
+  margin-bottom: 0px;
 }
 
 /* стили таблицы */
@@ -349,12 +365,12 @@ body {
 /* стили navbar */
 
 .navbarHead{
-  padding-left: 8.5%;
+  padding-left: 8.7%;
 }
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 1200px){
    .navbarHead{
-     padding-left: 0px;
+     padding-left: 5px;
      margin-left: 0px;
    }
   .navbarHead a{
@@ -374,10 +390,9 @@ body {
 
 .collapse ul li > a{
   color: #fff;
-  font-weight: 700;
 }
 
-@media screen and (min-width: 992px){
+@media screen and (min-width: 1200px){
   .collapse ul{
      margin-right:7.5%;
    }
@@ -385,6 +400,10 @@ body {
 
 .navbar-default {
   background-color: #507299;
+}
+
+.navbar-default {
+  border: none;
 }
 
 .navbar-default .navbar-brand {

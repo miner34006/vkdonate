@@ -27,15 +27,14 @@
     {% include "navbar.html" %}
 
     {# Левый сайд-бар #}
-    <div class="col-md-2 col-sm-3 col-md-offset-1 sidebar">
+    <div class="col-lg-offset-1 col-lg-2 col-md-3 col-sm-3 sidebar">
       {% block sideControl %} {% endblock %}
       {% block lastDonate %}{% endblock %}
     </div>
 
     {# Основной блок #}
-    <div class="col-xs-12 col-sm-9 col-md-8 main">
+    <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 main">
       {% block data %} {% endblock %}
-      {% include "paginator.html" %}
       {% block news %} {% endblock %}
     </div>
 

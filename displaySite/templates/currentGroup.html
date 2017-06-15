@@ -88,7 +88,7 @@
         {% for donation in objects %}
           <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ donation.donation_date }}</td>
+            <td>{{ donation.donation_date|date:"SHORT_DATE_FORMAT" }}</td>
             <td class="text-center"><a href="/currentDonater/get/{{ donation.donation_donater.donater_id }}">
             {{ donation.donation_donater.donater_id }}</a></td>
             <td>{{ donation.donation_size }}</td>
@@ -98,6 +98,7 @@
       </tbody>
     </table>
   </div>
+    {% include "paginator.html" %}
   {% else %}
     <div class="noDonation">
       <p class="hidden-xs">В этой группе Вам еще никто не задонатил!</p>
@@ -109,11 +110,7 @@
 
 {% block activeGroups %}
   <li class="active">
-    <a href="/groups/" class="visible-xs visible-sm text-center">
-      <i class="glyphicon glyphicon-flag"></i>
-      Группы </a>
-
-    <a href="/groups/" class="hidden-sm hidden-xs">
+    <a href="/groups/" class="">
       <i class="glyphicon glyphicon-flag"></i>
       Группы </a>
   </li>
