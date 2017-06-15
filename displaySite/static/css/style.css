@@ -322,6 +322,10 @@ body {
   text-align: center;
 }
 
+.donation td:last-child{
+  text-align: left;
+}
+
 .tableBody a{
   color: #336BAB;
   font-weight: 700;

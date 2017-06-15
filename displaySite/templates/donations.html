@@ -2,8 +2,8 @@
 
 {% block tableData %}
   <div class="profile-content border">
-  <h1 class="hidden-xs hidden-sm tableTitle">Мои донаты</h1>
-  <h1 class="visible-xs visible-sm tableTitle text-center">Мои донаты</h1>
+  <h1 class="hidden-xs tableTitle">Мои донаты</h1>
+  <h1 class="visible-xs tableTitle text-center">Мои донаты</h1>
   {% if objects %}
   <div class="table-responsive myTable">
     <table class="table table-hover myTable">
@@ -16,7 +16,7 @@
           <th>Текст</th>
         </tr>
       </thead>
-      <tbody class="tableBody">
+      <tbody class="tableBody donation">
         {% for donation in objects %}
           <tr>
             <td>{{ forloop.counter }}</td>

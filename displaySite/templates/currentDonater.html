@@ -3,8 +3,8 @@
 {% block quickOverview %}
   <div class="profile-content-for-current border">
   <a target="_blank" href="https://vk.com/id{{ donater.donater_id }}">
-    <h1 class="text-center visible-xs visible-sm panelTitle">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
-    <h1 class="hidden-xs hidden-sm panelTitle">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
+    <h1 class="text-center visible-xs panelTitle">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
+    <h1 class="hidden-xs panelTitle">{{ donater.donater_firtstName }} {{ donater.donater_secondName }}</h1>
     <hr class="line">
   </a>
 
@@ -62,8 +62,8 @@
 
 {% block tableData %}
   <div class="profile-content border">
-  <h2 class="visible-xs visible-sm text-center tableTitle">Донаты пользователя</h2>
-  <h2 class="hidden-xs hidden-sm tableTitle">Донаты пользователя</h2>
+  <h2 class="visible-xs text-center tableTitle">Донаты пользователя</h2>
+  <h2 class="hidden-xs tableTitle">Донаты пользователя</h2>
   {% if objects %}
   <div class="table-responsive myTable">
     <table class="table table-hover myTable">
@@ -75,7 +75,7 @@
           <th>Текст</th>
         </tr>
       </thead>
-      <tbody class="tableBody">
+      <tbody class="tableBody donation">
         {% for donation in objects %}
           <tr>
             <td>{{ forloop.counter }}</td>
