@@ -212,20 +212,7 @@ body {
   text-align: center;
 }
 
-.article {
-  border: 1px solid #dae1e8;
-  margin-bottom: 15px;
-  padding: 20px;
-  background: #fff;
-}
 
-.article > p {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  border-left: 2px solid #6285AF;
-  font-size: 16px;
-  margin-bottom: 0px;
-  padding-left: 10px;
-}
 
 .lastDonate{
   margin-top: 15px;
@@ -301,6 +288,23 @@ body {
 
 /* стили таблицы */
 
+@media screen and (max-width: 768px){
+  .moreSpace{
+    padding-right:5px;
+    padding-left:5px;
+  }
+
+  .moreSpaceForPanel div{
+    padding-right:0px;
+    padding-left:0px;
+  }
+
+  .moreSpaceForPanel{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
 .tableTitle{
   margin-top: 0px;
 }
@@ -323,6 +327,10 @@ body {
 }
 
 .donation td:last-child{
+  text-align: left;
+}
+
+.donation th:last-child{
   text-align: left;
 }
 
@@ -365,6 +373,33 @@ body {
 }
 
 /* конец стилей панелей */
+
+/* стили для news */
+
+.article {
+  border: 1px solid #dae1e8;
+  margin-bottom: 15px;
+  padding: 20px;
+  background: #fff;
+}
+
+.article > p {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-left: 2px solid #6285AF;
+  font-size: 16px;
+  margin-bottom: 0px;
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 768px){
+  .article{
+    padding-right:5px;
+    padding-left:5px;
+  }
+}
+
+/* конец стилей для news */
+
 
 /* стили navbar */
 
