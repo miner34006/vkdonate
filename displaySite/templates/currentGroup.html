@@ -2,11 +2,11 @@
 
 {% block quickOverview %}
   <div class="profile-content-for-current border">
-  <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="visible-xs text-center panelTitle">{{ name }}</h1></a>
-  <a target="_blank" href="https://vk.com/club{{ id }}"><h1 class="hidden-xs panelTitle">{{ name }}</h1></a>
-  <hr class="line">
+    <a target="_blank" href="https://vk.com/club{{ group.group_id }}"><h1 class="visible-xs text-center panelTitle">{{ name }}</h1></a>
+    <a target="_blank" href="https://vk.com/club{{ group.group_id }}"><h1 class="hidden-xs panelTitle">{{ name }}</h1></a>
+    <hr class="line">
 
-  <div class="row moreSpaceForPanel">
+    <div class="row moreSpaceForPanel">
 
     <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
       <div class="myPanel">
@@ -14,11 +14,11 @@
           <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
         </div>
         <div class="panel-body">
-          {% if group_summOfAllDonations == 0 %}
+          {% if group.group_summOfAllDonations == 0 %}
             <h2  class="panelup"><strong>0</strong>
             <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
           {% else %}
-            <h2  class="panelup"><strong>{{group_summOfAllDonations}}</strong>
+            <h2  class="panelup"><strong>{{group.group_summOfAllDonations}}</strong>
             <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
           {% endif %}
         </div>
@@ -43,8 +43,8 @@
             <h2 class="panel-title "><strong>Самый большой донат</strong></h2>
         </div>
         <div class="panel-body">
-          {% if theBiggestSize %}
-            <h2  class="panelup"><strong>{{theBiggestSize.0.donation_size}}</strong>
+          {% if maxDonate %}
+            <h2  class="panelup"><strong>{{maxDonate.0.donation_size}}</strong>
             <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
           {% else %}
             <h2  class="panelup"><strong>0</strong>

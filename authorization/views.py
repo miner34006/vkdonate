@@ -3,12 +3,8 @@ from __future__ import unicode_literals
 
 from displaySite.models import Admin
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import auth
 from django.shortcuts import render_to_response, redirect
-from django.template.context_processors import csrf
-from importlib import import_module
-from django.http import HttpResponse
 
 import requests
 import re

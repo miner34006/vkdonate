@@ -1,0 +1,162 @@
+{% extends "content.html" %}
+
+{% block statistics %}
+  <div class="profile-content border">
+    <h1 class="hidden-xs tableTitle">Статистика</h1>
+    <h1 class="visible-xs tableTitle text-center">Статистика</h1>
+    <div class="noDonation">
+      <p>Comming soon!</p>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+  <div class="profile-content-for-current border">
+    <h1 class="hidden-xs tableTitle">Статистика</h1>
+    <h1 class="visible-xs tableTitle text-center">Статистика</h1>
+    <hr class="line">
+
+    <div class="row moreSpaceForPanel">
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+            <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
+          </div>
+          <div class="panel-body">
+            {% if sumOfDonations == 0 %}
+              <h2  class="panelup"><strong>0</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% else %}
+              <h2  class="panelup"><strong>{{sumOfDonations}}</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+            <h2 class="panel-title"><strong>Количество донатов</strong></h2>
+          </div>
+          <div class="panel-body">
+            <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
+              <small><span class="glyphicon glyphicon-stats"></span></small></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+              <h2 class="panel-title "><strong>Самый большой донат</strong></h2>
+          </div>
+          <div class="panel-body">
+            {% if maxDonate %}
+              <h2  class="panelup"><strong>{{maxDonate.0.donation_size}}</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% else %}
+              <h2  class="panelup"><strong>0</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+            <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
+          </div>
+          <div class="panel-body ">
+            <h2 class="panelup"><strong>{{averageDonate}}</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+            <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
+          </div>
+          <div class="panel-body">
+            {% if group.group_summOfAllDonations == 0 %}
+              <h2  class="panelup"><strong>0</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% else %}
+              <h2  class="panelup"><strong>{{group.group_summOfAllDonations}}</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+            <h2 class="panel-title"><strong>Количество донатов</strong></h2>
+          </div>
+          <div class="panel-body">
+            <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
+              <small><span class="glyphicon glyphicon-stats"></span></small></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+              <h2 class="panel-title "><strong>Самый маленький донат</strong></h2>
+          </div>
+          <div class="panel-body">
+            {% if maxDonate %}
+              <h2  class="panelup"><strong>{{maxDonate.0.donation_size}}</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% else %}
+              <h2  class="panelup"><strong>0</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+        <div class="myPanel">
+          <div class="panelHead">
+            <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
+          </div>
+          <div class="panel-body ">
+            <h2 class="panelup"><strong>{{averageDonate}}</strong>
+              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-content border col-md-6" style="width: 49.15%; margin-right: 15px;padding-bottom: 10px">
+    <h2 class="tableTitle text-center">Донатер дня</h2>
+    <h2 class="hidden-xs tableTitle text-center">Misha1</h2>
+  </div>
+
+  <div class="profile-content border col-md-6" style="width: 49.15%;padding-bottom: 10px">
+    <h2 class="hidden-xs tableTitle text-center">Донатер месяца</h2>
+    <h2 class="hidden-xs tableTitle text-center">Misha2</h2>
+  </div>
+
+  <div class="profile-content border col-md-12" style="padding-bottom: 10px">
+    <h2 class="hidden-xs tableTitle text-center">Таблица? График?</h2>
+    <h2 class="hidden-xs tableTitle text-center">СТАТИСТИКА</h2>
+  </div>
+
+
+{% block activeStatistics %}
+  <li class="active">
+    <a href="/statistics/" class="">
+      <i class="glyphicon glyphicon-stats"></i>
+      Статистика
+    </a>
+  </li>
+{% endblock %}

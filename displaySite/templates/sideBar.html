@@ -2,13 +2,10 @@
 
 {% block sideControl %}
   <div class="profile-sidebar border hidden-xs">
-    <!-- SIDEBAR MENU -->
     <div class="profile-usermenu">
       <ul class="nav">
         {% block activeMain %}
         <li>
-
-
           <a href="/" class="">
           <i class="glyphicon glyphicon-home"></i>
           Главная </a>
@@ -18,8 +15,6 @@
         {% if user_id %}
         {% block activeDonations %}
           <li>
-
-
             <a href="/donations/" class="">
             <i class="glyphicon glyphicon-gift"></i>
             Донаты </a>
@@ -28,8 +23,6 @@
 
         {% block activeDonaters %}
           <li>
-
-
             <a href="/donaters/" class="">
             <i class="glyphicon glyphicon-user"></i>
             Донатеры </a>
@@ -38,41 +31,35 @@
 
         {% block activeGroups %}
           <li>
-
-
             <a href="/groups/" class="">
             <i class="glyphicon glyphicon-flag"></i>
             Группы </a>
           </li>
         {% endblock %}
-
+        {% block activeSettings %}
           <li>
-
-
-            <a href="#" class="">
+            <a href="/settings/" class="">
             <i class="glyphicon glyphicon-cog"></i>
             Настройки </a>
           </li>
-
+        {% endblock %}
+        {% block activeStatistics %}
           <li>
-
-
-            <a href="#" class="">
+            <a href="/statistics/" class="">
             <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i>
             Статистика </a>
           </li>
-
+        {% endblock %}
+        {% endif %}
+        {% block activeInformation%}
           <li>
-
-
-            <a href="#" class="">
+            <a href="/information/" class="">
             <i class="glyphicon glyphicon-info-sign"></i>
             О проекте</a>
           </li>
-        {% endif %}
+        {% endblock %}
       </ul>
     </div>
-    <!-- END MENU -->
   </div>
 {% endblock %}
 

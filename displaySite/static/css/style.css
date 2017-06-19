@@ -1,5 +1,18 @@
-.title{
-    margin-top: 0;
+.text p{
+  border-left: 4px solid #6285AF;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  font-weight: normal;
+  font-size: medium;
+  text-align: justify;
+}
+
+@media screen and (max-width: 768px)  {
+  .text p{
+    border-left: none;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .center{
@@ -7,119 +20,54 @@
     margin:0 auto;
 }
 
-.number{
-    width:70px;
-    text-align: center;
-}
-
-.date{
-    width:200px;
-    text-align: center;
-}
-
-.id{
-    width:120px;
-    text-align: center;
-}
-
-.size{
-    width:100px;
-    text-align: center;
-}
-
-.alldonationsize{
-    width:150px;
-    text-align: center;
-}
-
-.firstname{
-    width: 200px;
-    text-align: center;
-}
-
-.secondname{
-    width: 200px;
-    text-align: center;
-}
-
-.my{
-    padding-right: 0px;
-}
-
-.heading{
-    height: 220px;
-}
-
-.panelup{
-    margin-top: 10px;
-}
-
-.headingtext{
-    margin-top: 30px;
-}
-
-.article{
-    margin-bottom: 20px;
-}
-
-.pbody{
-    margin-top: 15px;
-}
-
-.articlein{
-    width: 100%;
-    height: 100%;
-    margin-bottom: 20px;
-}
-
-.articleTitle{
-    margin-top: 0px;
-}
-
-.articleText{
-    text-align: justify;
-}
-
-.articleTextin{
-    text-align: justify;
-}
-
-.articleright{
-    margin-top: 50px;
-}
-
 .line{
     margin-top: 0px;
 }
-
-
-/***
-User Profile Sidebar by @keenthemes
-A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-Licensed under MIT
-***/
 
 body {
   background: #edeef0;
 }
 
-/* Profile container */
-.profile {
-  margin: 20px 0;
+.profile-content {
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #fff;
 }
 
-/* Profile sidebar */
+.border {
+  border: 1px solid #dae1e8;
+}
+
+.main{
+  padding-left: 0px;
+  margin-top: 65px;
+}
+
+.sidebar{
+  margin-top: 65px;
+}
+
+@media screen and (max-width: 767px) {
+    .main {
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-top: 0px;
+    }
+
+    .sidebar{
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-top: 60px;
+   }
+}
+
+
+
+/* #################### стили sideBar  #################### */
 .profile-sidebar {
   padding: 5px 0 5px 0;
   margin-bottom: 15px;
   background: white;
-}
-
-.profile-usertitle-name {
-  color: #5a7391;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 7px;
 }
 
 .profile-usermenu {
@@ -160,30 +108,17 @@ body {
   margin-left: -2px;
 }
 
-.profile-content {
-  padding: 20px;
-  margin-bottom: 15px;
-  background: #fff;
-}
-
 .profile-content-for-current {
-  padding: 20px;
+  padding: 15px;
   padding-bottom: 0px;
   margin-bottom: 15px;
   background: #fff;
 }
-
-.spisok{
-    position: relative;
-}
-
-.podspisok{
-    height: 100%;
-}
+/* #################### конец стилей sideBar #################### */
 
 
 
-
+/* #################### отсутствие контента #################### */
 .noDonation p{
   border-left: 4px solid #6285AF;
   margin-bottom: 0px;
@@ -192,7 +127,7 @@ body {
   font-size: medium;
 }
 
-@media screen and (max-width: 970px)  {
+@media screen and (max-width: 768px)  {
   .noDonation p{
     border-left: none;
     text-align: center;
@@ -211,9 +146,11 @@ body {
   font-weight: normal;
   text-align: center;
 }
+/* #################### конец отсутствия контента #################### */
 
 
 
+/* #################### стили последнего доната #################### */
 .lastDonate{
   margin-top: 15px;
   margin-bottom: 15px;
@@ -234,60 +171,32 @@ body {
   padding-bottom: 0px;
 }
 
+@media screen and (max-width: 768px){
+  .lastDonate > .panel > .panel-body{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
 .panel-heading > p{
   color: #285473;
   font-size: medium;
   font-weight: bold;
   margin-bottom: 0px;
 }
+/* #################### конец стилей последнего доната #################### */
 
-.border {
-  border: 1px solid #dae1e8;
-}
 
-.main{
-  padding-left: 0px;
-  margin-top: 65px;
-}
 
-.sidebar{
-  margin-top: 65px;
-}
-
-@media screen and (max-width: 767px) {
-    .main {
-      padding-left: 0px;
-      padding-right: 0px;
-      margin-top: 0px;
-    }
-
-    .sidebar{
-      padding-left: 0px;
-      padding-right: 0px;
-   }
-}
-
-@media screen and (min-width:992px) and (max-width:1200px) {
-  .nav li{
-    text-align: center;
-  }
-}
-
-.myNavbar{
-  margin-bottom: 15px;
-}
-
-.panelTitle{
-  color: #45668e;
-  margin-top: 0px;
-}
-
+/* #################### стили пагинатора #################### */
 .pagination{
   margin-bottom: 0px;
 }
+/* #################### конец стили пагинатора #################### */
 
-/* стили таблицы */
 
+
+/* #################### стили таблицы #################### */
 @media screen and (max-width: 768px){
   .moreSpace{
     padding-right:5px;
@@ -338,11 +247,11 @@ body {
   color: #336BAB;
   font-weight: 700;
 }
+/* #################### конец стилей таблицы #################### */
 
-/* конец стилей таблицы */
 
-/* стили групп */
 
+/* #################### стили групп #################### */
 .group{
   margin-top: 15px;
 }
@@ -351,10 +260,19 @@ body {
   margin:0px;
   margin-bottom: 0px;
 }
+/* #################### конец стилей групп #################### */
 
-/* конец стилей групп */
 
-/* стили панелей */
+
+/* #################### стили панелей #################### */
+.panelTitle{
+  color: #45668e;
+  margin-top: 0px;
+}
+
+.panelup{
+    margin-top: 10px;
+}
 
 .myPanel{
   margin-bottom: 20px;
@@ -371,15 +289,19 @@ body {
   border-top-right-radius: 3px;
   background-color: #F0F2F5;
 }
+/* #################### конец стилей панелей #################### */
 
-/* конец стилей панелей */
 
-/* стили для news */
+
+/* #################### стили для news #################### */
+.articleTitle{
+    margin-top: 0px;
+}
 
 .article {
   border: 1px solid #dae1e8;
   margin-bottom: 15px;
-  padding: 20px;
+  padding: 15px;
   background: #fff;
 }
 
@@ -397,110 +319,90 @@ body {
     padding-left:5px;
   }
 }
+/* #################### конец стилей для news #################### */
 
-/* конец стилей для news */
 
 
-/* стили navbar */
+/* #################### стили navbar #################### */
 
-.navbarHead{
-  padding-left: 8.7%;
-}
-
-@media screen and (max-width: 1200px){
-   .navbarHead{
-     padding-left: 5px;
-     margin-left: 0px;
-   }
-  .navbarHead a{
-     padding-left: 15px;
-     margin-left: 0px;
-   }
-}
-
-@media screen and (max-width: 768px){
-   .navbarHead{
-     padding-left: 0px;
-   }
-  .navbarHead a{
-     padding-left:15px;
-   }
-}
-
-.collapse ul li > a{
-  color: #fff;
-}
-
-@media screen and (min-width: 1200px){
-  .collapse ul{
-     margin-right:7.5%;
-   }
-}
-
+/* задник и граница navBar'a */
 .navbar-default {
+  border: none;
   background-color: #507299;
 }
 
-.navbar-default {
-  border: none;
-}
-
-.navbar-default .navbar-brand {
-  color: #fff;
-  font-weight: 700;
-}
-
-@media (min-width: 768px) {
-    .navbar .navbar-nav {
-        display: inline-block;
-        float: none;
-        vertical-align: top;
-    }
-
-    .navbar .navbar-collapse {
-        text-align: center;
-    }
-}
-
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #fff;
-}
-
-/* Цвет пунктов навигационного меню */
-.navbar-default .navbar-nav > li > a {
-    color: #fff;
-}
-/* Цвет пункта меню, при поднесении к нему курсора мышки или при его нахождении в фокусе */
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #fff;
-}
-
+/* граница для кнопки раскрытия для XC*/
 .navbar-default .navbar-toggle {
   border: none;
 }
 
-nav > div >div > ul > li > a {
-  color: #fff;
-  font-size: medium;
-  font-weight: 700;
-}
-
-nav > div >div > ul > div >li > a {
-  color: #fff;
-  font-weight: 700;
-}
-
-
+/* фон для кнопки раскрытия для XC*/
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #405F85;
 }
 
+/* цвет для кнопки раскрытия для XC*/
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #fff;
 }
 
-/* конец стилей navbar */
+/* стиль для vkDonate */
+.navbar-default .navbar-brand {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* при наведении на vkDonate */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #fff;
+}
+
+/* стили для ссылок в navBare'e */
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* при наведении на ссылки */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* при наведении на ссылки при XS */
+@media screen and (max-width: 768px){
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus {
+    background-color: #405F85;
+  }
+}
+
+/* отменяет прокрутку для xs navBar'a*/
+#myNavbar{
+  overflow: hidden;
+  border-color: #405F85;
+}
+
+.navbar-header{
+  padding-left: 8.7%;
+}
+
+.navbar-collapse ul.navbar-nav{
+  padding-right: 8.7%;
+}
+
+@media screen and (max-width: 1200px){
+   .navbar-header{
+     padding-left: 3px;
+   }
+  .navbar-collapse ul.navbar-nav{
+    padding-right: 3px;
+  }
+}
+
+/* #################### конец стилей navbar #################### */

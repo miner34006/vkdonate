@@ -1,75 +1,80 @@
 {% block navbar %}
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header navbarHead" style="">
-        <a class="navbar-brand" href="/" >VKDonate</a>
+ <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
 
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">vkDonate</a>
+    </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="overflow: hidden">
-        <ul class="nav navbar-nav navbar-right">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="visible-xs">
+        <ul class="nav navbar-nav">
 
-          <div class="hidden-sm hidden-md hidden-lg" style="text-align: center">
-
-
-                <li>
-                  <a href="/" class="">
-                  <i class="glyphicon glyphicon-home"></i>
-                  Главная </a>
-                </li>
-
-
-                <li>
-                  <a href="/donations/" class="">
-                  <i class="glyphicon glyphicon-gift"></i>
-                  Донаты </a>
-                </li>
-
-
-                <li>
-                  <a href="/donaters/" class="">
-                  <i class="glyphicon glyphicon-user"></i>
-                  Донатеры </a>
-                </li>
-
-
-                <li>
-                  <a href="/groups/" class="">
-                  <i class="glyphicon glyphicon-flag"></i>
-                  Группы </a>
-                </li>
-
-
-                <li>
-                  <a href="#" class="">
-                  <i class="glyphicon glyphicon-cog"></i>
-                  Настройки </a>
-                </li>
-
-
-                <li>
-                  <a href="#" class="">
-                  <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i>
-                  Статистика </a>
-                </li>
-
-          </div>
+          <li>
+            <a href="/">
+            <i class="glyphicon glyphicon-home"></i>
+            Главная </a>
+          </li>
 
           {% if user_id %}
-            <li><a style="text-align: center" href="/auth/logout/">Выйти ({{ user_id }})</a></li>
-          {% else %}
-            <li style="padding-bottom: 0px"><a href="https://oauth.vk.com/authorize?client_id=6020313&display=page&redirect_uri=http://vkdonate.ru/auth/callback/&scope=groups,photos,offline&response_type=code&v=5.64">Войти</a></li>
+          <li>
+            <a href="/donations/" class="">
+            <i class="glyphicon glyphicon-gift"></i>
+            Донаты </a>
+          </li>
+
+          <li>
+            <a href="/donaters/" class="">
+            <i class="glyphicon glyphicon-user"></i>
+            Донатеры </a>
+          </li>
+
+           <li>
+            <a href="/groups/" class="">
+            <i class="glyphicon glyphicon-flag"></i>
+            Группы </a>
+          </li>
+
+          <li>
+            <a href="/settings/" class="">
+            <i class="glyphicon glyphicon-cog"></i>
+            Настройки </a>
+          </li>
+
+          <li>
+            <a href="/statistics/" class="">
+            <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i>
+            Статистика </a>
+          </li>
           {% endif %}
+
+          <li>
+            <a href="/information/" class="">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            О проекте</a>
+          </li>
 
         </ul>
       </div>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        {% if user_id %}
+          <li><a href="/auth/logout/"><span class="glyphicon glyphicon-log-out"></span> Выйти </a></li>
+        {% else %}
+          <li><a href="https://oauth.vk.com/authorize?client_id=6020313&display=page&redirect_uri=http://vkdonate.ru/auth/callback/&scope=groups,photos,offline&response_type=code&v=5.64"><span class="glyphicon glyphicon-log-in"></span> Войти</a></li>
+        {% endif %}
+
+      </ul>
     </div>
-  </nav>
+
+  </div>
+</nav>
+
 {% endblock %}

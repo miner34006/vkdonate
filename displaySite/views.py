@@ -1,206 +1,173 @@
 # -*- coding: utf-8 -*-
 
-#Тестовый коммит для ветки develop
-
 import sys
 sys.path.append("/home/bogdan/Documents/python/vkDonate/vkapi/class")
 sys.path.append("/home/django/vkdonate/vkapi/class")
 
-from django.shortcuts import render
 from django.shortcuts import render_to_response, redirect
 from displaySite.models import Donater, Donation, Admin, Group
 from django.core.paginator import Paginator
-from django.contrib import auth
-from django.contrib.auth.models import User as SiteUser
-from django.http import HttpResponseNotFound
-from django.shortcuts import get_object_or_404
-from django.db.models import Avg
-
-from User import User as vk_user
-from Group import Group as vk_group
 
 ########################################################################################
 
 def currentDonater(request, donater_id, pageNumber = 1):
-  # Проверяем авторизован ли пользователь
-  if auth.get_user(request).is_authenticated:
-
-    # Проверяем наличие донатера у пользователя (донатили ли пользователю донатеры)
-    get_object_or_404(Donater.objects.filter(donater_id=donater_id, donater_admin=auth.get_user(request).username))
-
-    # Получаем все донаты, связанные с текущим донатером
-    donationList = Donation.objects.filter(donation_donater = donater_id)
-
-    # Пагинируем их по 10 штук
-    paginator = Paginator(donationList, 10)
-
-    if Donation.objects.filter(donation_donater = donater_id).exists():
-      averageDonate = Donation.objects.filter(donation_donater = donater_id).aggregate(Avg('donation_size'))
-      averageDonate = round(averageDonate['donation_size__avg'], 1)
-    else:
-      averageDonate = 0
-
-    return render_to_response('currentDonater.html',
-      {'donater':Donater.objects.get(donater_id = donater_id),
-       'objects':paginator.page(pageNumber),
-       'pages':paginator.num_pages,
-       'objectName': "currentDonater/get/%s" % donater_id,
-       'last_donate':Donation.objects.filter
-          (donation_admin=auth.get_user(request).username)[:1],
-       'theBiggestSize': Donation.objects.filter(donation_donater = donater_id).order_by('-donation_size')[:1].values(),
-       'numberOfDonations':Donation.objects.filter(donation_donater = donater_id).count(),
-       'averageDonate':averageDonate,
-       'user_id': auth.get_user(request).username})
-
-  # Если пользователь не авторизован, перенаправялем его на главную страницу
-  else:
+  if not Admin.isAuthenticated(request):
     return redirect('/')
+
+  if not Donater.belongToAdmin(request, donater_id):
+    from django.http import Http404
+    raise Http404
+
+  donationList = Donater.getDonations(request, donater_id)
+  paginator = Paginator(donationList, 10)
+
+  return render_to_response('currentDonater.html',
+    {'donater' : Donater.getDonater(donater_id),
+     'objects' : paginator.page(pageNumber),
+     'pages' : paginator.num_pages,
+     'objectName': "currentDonater/get/%s" % donater_id,
+     'last_donate': Admin.getLastDonate(request),
+     'maxDonate': Donater.getMaxDonate(request, donater_id),
+     'averageDonate': Donater.getAverageDonate(request, donater_id),
+     'numberOfDonations' : Donater.countDonations(request, donater_id),
+     'user_id' : Admin.getUsername(request)})
 
 ########################################################################################
 
 def currentGroup(request, group_id, pageNumber = 1):
-  #Проверяем авторизован ли пользователь
-  if auth.get_user(request).is_authenticated:
+  from Group import Group as vk_group
 
-    #Проверяем наличие группы у пользователя (является ли он её админом)
-    get_object_or_404(Group.objects.filter(group_admin=auth.get_user(request).username, group_id=group_id))
-
-    #Получаем все донаты, связанные с текущей группой
-    donationsList = Donation.objects.filter(donation_group=group_id)
-
-    #Пагинируем их по 10 штук
-    paginator = Paginator(donationsList, 10)
-
-    name = vk_group.getName(group_id)
-
-    if Donation.objects.filter(donation_group = group_id).exists():
-      averageDonate = Donation.objects.filter(donation_group = group_id).aggregate(Avg('donation_size'))
-      averageDonate = round(averageDonate['donation_size__avg'],1)
-    else:
-      averageDonate = 0
-
-    return render_to_response('currentGroup.html',
-      {'id':group_id,
-       'group_summOfAllDonations':Group.objects.get(group_id = group_id).group_summOfAllDonations,
-       'objects':paginator.page(pageNumber),
-       'pages':paginator.num_pages,
-       'objectName': "currentGroup/get/%s" % group_id,
-       'name':name,
-       'last_donate': Donation.objects.filter
-          (donation_admin=auth.get_user(request).username)[:1],
-       'theBiggestSize': Donation.objects.filter(donation_group=group_id).order_by('-donation_size')[:1],
-       'numberOfDonations': Donation.objects.filter(donation_group=group_id).count(),
-       'user_id': auth.get_user(request).username,
-       'averageDonate':averageDonate})
-
-  # Если пользователь не авторизован, перенаправялем его на главную страницу
-  else:
+  if not Admin.isAuthenticated(request):
     return redirect('/')
+
+  if not Group.belongToAdmin(request, group_id):
+    from django.http import Http404
+    raise Http404
+
+  donationsList = Group.getDonations(request, group_id)
+  paginator = Paginator(donationsList, 10)
+
+  return render_to_response('currentGroup.html',
+    {'group' : Group.getGroup(group_id),
+     'objects' : paginator.page(pageNumber),
+     'pages' : paginator.num_pages,
+     'objectName' : "currentGroup/get/%s" % group_id,
+     'name' : vk_group.getName(group_id),
+     'last_donate' : Admin.getLastDonate(request),
+     'maxDonate' : Group.getMaxDonate(request, group_id),
+     'numberOfDonations' : Group.countDonations(request, group_id),
+     'averageDonate': Group.getAverageDonate(request, group_id),
+     'user_id' : Admin.getUsername(request)})
 
 ########################################################################################
 
 def donaters(request, pageNumber = 1):
-
-  # Проверяем авторизован ли пользователь
-  if auth.get_user(request).is_authenticated:
-
-    #Выводим 'особую' страницу, когда у пользователя нет донатеров
-    if not Donater.objects.filter(donater_admin=
-      Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
-      return render_to_response \
-        ('donaters.html',
-         {'user_id': auth.get_user(request).username})
-
-    # Получаем всех донатеров, связанных с текущим пользователем
-    donaterList = Donater.objects.filter(donater_admin=
-      Admin.objects.get(admin_id=int(auth.get_user(request).username)))
-
-    # Пагинируем их по 10 штук
-    paginator = Paginator(donaterList, 10)
-
-    return render_to_response\
-      ('donaters.html',
-        {'objects': paginator.page(pageNumber),
-         'pages': paginator.num_pages,
-         'objectName' : "donaters",
-         'last_donate':Donation.objects.filter
-            (donation_admin=auth.get_user(request).username)[:1],
-         'user_id': auth.get_user(request).username})
-
-  # Если пользователь не авторизован, перенаправялем его на главную страницу
-  else:
+  if not Admin.isAuthenticated(request):
     return redirect('/')
+
+  if not Admin.hasDonaters(request):
+    return render_to_response \
+      ('donaters.html',
+      {'user_id': Admin.getUsername(request)})
+
+  donaterList = Admin.getDonaters(request)
+  paginator = Paginator(donaterList, 10)
+
+  return render_to_response\
+    ('donaters.html',
+      {'objects': paginator.page(pageNumber),
+       'pages': paginator.num_pages,
+       'objectName' : "donaters",
+       'last_donate': Admin.getLastDonate(request),
+       'user_id': Admin.getUsername(request)})
 
 ########################################################################################
 
 def donations(request, pageNumber = 1):
-  # Проверяем авторизован ли пользователь
-  if auth.get_user(request).is_authenticated:
-
-    # Выводим 'особую' страницу, когда у пользователя нет донатов
-    if not Donation.objects.filter(donation_admin=
-      Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
-      return render_to_response \
-        ('donations.html',
-         {'user_id': auth.get_user(request).username})
-
-    #Получаем все донаты, связанные с текущим пользователем
-    donationList = Donation.objects.filter(donation_admin=
-      Admin.objects.get(admin_id=int(auth.get_user(request).username))).order_by('-donation_date')
-
-    #Пагинируем их по 10 штук
-    paginator = Paginator(donationList, 10)
-
-    return render_to_response\
-      ('donations.html',
-        {'objects':paginator.page(pageNumber),
-         'pages': paginator.num_pages,
-         'objectName': "donations",
-         'last_donate':Donation.objects.filter
-            (donation_admin=auth.get_user(request).username)[:1],
-         'user_id':auth.get_user(request).username})
-
-  # Если пользователь не авторизован, перенаправялем его на главную страницу
-  else:
+  if not Admin.isAuthenticated(request):
     return redirect('/')
+
+  if not Admin.hasDonations(request):
+    return render_to_response \
+      ('donations.html',
+       {'user_id': Admin.getUsername(request)})
+
+  donationList = Admin.getDonations(request)
+  paginator = Paginator(donationList, 10)
+
+  return render_to_response\
+    ('donations.html',
+      {'objects':paginator.page(pageNumber),
+       'pages': paginator.num_pages,
+       'objectName': "donations",
+       'last_donate': Admin.getLastDonate(request),
+       'user_id': Admin.getUsername(request)})
 
 ########################################################################################
 
 def groups(request):
-  # Проверяем авторизован ли пользователь
-  if auth.get_user(request).is_authenticated:
+  from  utils import getGroupsPhoto, connectImgAndId
 
-    # Выводим 'особую' страницу, когда у пользователя нет групп
-    if not Group.objects.filter(group_admin=Admin.objects.get(admin_id=int(auth.get_user(request).username))).exists():
-      return render_to_response ('groups.html',{'user_id': auth.get_user(request).username})
-
-    #Получаем группы, связанные с админом
-    data = Group.objects.filter(group_admin=auth.get_user(request).username)
-
-    # Получаем аватарки групп
-    links = {'data': []}
-    ids = []
-    for group in data.values():
-      ids.append(str(group["group_id"]))
-    ids = ','.join(ids)
-    array = vk_group.getGroupsImg(ids)
-
-    #Добавляем ссылку на фото и id группы
-    for group in array:
-      links['data'].append({'link': group['img'], 'group_id': group['id']})
-    data = links
-
-    #Добавляем последний донат
-    data.update({'last_donate': Donation.objects.filter
-      (donation_admin=auth.get_user(request).username)[:1]})
-
-    #Добавляем аутентифицированного юзера
-    data.update({'user_id': auth.get_user(request).username})
-
-    return render_to_response('groups.html', data)
-
-  # Если пользователь не авторизован, перенаправялем его на главную страницу
-  else:
+  if not Admin.isAuthenticated(request):
     return redirect('/')
+
+  if not Admin.hasGroups(request):
+    return render_to_response \
+      ('groups.html',
+       {'user_id': Admin.getUsername(request)})
+
+  groups = getGroupsPhoto(Admin.getGroups(request))
+
+  data = connectImgAndId(groups)
+  data.update({'last_donate': Admin.getLastDonate(request),
+               'user_id': Admin.getUsername(request)})
+  return render_to_response('groups.html', data)
+
+########################################################################################
+
+def settings(request):
+  if not Admin.isAuthenticated(request):
+    return redirect('/')
+
+  if not Admin.hasDonations(request):
+    return render_to_response \
+      ('settings.html',
+       {'user_id': Admin.getUsername(request)})
+
+  return render_to_response('settings.html',
+    {'last_donate': Admin.getLastDonate(request),
+     'user_id': Admin.getUsername(request)})
+
+########################################################################################
+
+def statistics(request):
+  if not Admin.isAuthenticated(request):
+    return redirect('/')
+
+  if not Admin.hasDonations(request):
+    return render_to_response \
+      ('statistics.html',
+       {'user_id': Admin.getUsername(request)})
+
+  return render_to_response('statistics.html',
+    {'last_donate': Admin.getLastDonate(request),
+     'user_id': Admin.getUsername(request)})
+
+########################################################################################
+
+def information(request):
+  if not Admin.isAuthenticated(request):
+    return render_to_response('information.html')
+
+  if not Admin.hasDonations(request):
+    return render_to_response \
+      ('information.html',
+       {'user_id': Admin.getUsername(request)})
+
+  return render_to_response('information.html',
+    {'last_donate': Admin.getLastDonate(request),
+     'user_id': Admin.getUsername(request)})
+
+
 
 ########################################################################################
