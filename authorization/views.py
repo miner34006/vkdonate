@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+
+import sys
+sys.path.append("/home/bogdan/Documents/python/vkDonate/vkapi/class")
+sys.path.append("/home/django/vkdonate/vkapi/class")
+
+sys.path.append("/home/bogdan/Documents/python/vkDonate/authorization")
+sys.path.append("/home/django/vkdonate/authorization")
 
 from displaySite.models import Admin
-from django.contrib.auth.models import User
 from django.contrib import auth
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import redirect
 
 import requests
 import re
 
-from django.shortcuts import render
+from utils import createUser, sendRegistrationMail
 
 ########################################################################################
 
@@ -25,18 +30,18 @@ def authorization(request):
   data = requests.get(url).text
   id = re.findall(r'user_id":(\d+)', data)[0]
 
-  if Admin.objects.filter(admin_id=int(id)).exists():
-    user = auth.authenticate(username=id)
+  if Admin.objects.filter(admin_id = int(id)).exists():
+    user = auth.authenticate(username = id)
     auth.login(request, user)
     return redirect('/')
   else:
-    user = User.objects.create_user(username=int(id), password=int(id))
-    user.save()
-    token = re.findall(r'access_token":"(\w+)"', data)[0]
-    admin = Admin(admin_id=int(id), admin_token=token, user=user)
-    admin.save()
-    user = auth.authenticate(username=id)
+    createUser(id, data)
+
+    user = auth.authenticate(username = id)
     auth.login(request, user)
+
+    sendRegistrationMail(id)
+
     return redirect('/')
 
 ########################################################################################

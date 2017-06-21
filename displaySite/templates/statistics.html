@@ -1,155 +1,112 @@
 {% extends "content.html" %}
 
 {% block statistics %}
-  <div class="profile-content border">
-    <h1 class="hidden-xs tableTitle">Статистика</h1>
-    <h1 class="visible-xs tableTitle text-center">Статистика</h1>
-    <div class="noDonation">
-      <p>Comming soon!</p>
-    </div>
-  </div>
-{% endblock %}
-
-
-
   <div class="profile-content-for-current border">
     <h1 class="hidden-xs tableTitle">Статистика</h1>
     <h1 class="visible-xs tableTitle text-center">Статистика</h1>
     <hr class="line">
 
-    <div class="row moreSpaceForPanel">
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-            <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
+    {% if has_data %}
+      <div class="row moreSpaceForPanel">
+        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+          <div class="myPanel">
+            <div class="panelHead">
+              <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
+            </div>
+            <div class="panel-body">
+                <h2  class="panelup"><strong>{{ sum_donation }}</strong>
+                <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            </div>
           </div>
-          <div class="panel-body">
-            {% if sumOfDonations == 0 %}
-              <h2  class="panelup"><strong>0</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% else %}
-              <h2  class="panelup"><strong>{{sumOfDonations}}</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% endif %}
+        </div>
+
+        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+          <div class="myPanel">
+            <div class="panelHead">
+              <h3 class="panel-title"><strong>Количество донатов</strong></h3>
+            </div>
+            <div class="panel-body">
+              <h2 class="panelup"><strong>{{number_donation}}</strong>
+                <small><span class="glyphicon glyphicon-stats"></span></small></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+          <div class="myPanel">
+            <div class="panelHead">
+                <h2 class="panel-title "><strong>Самый большой донат</strong></h2>
+            </div>
+            <div class="panel-body">
+                <h2  class="panelup"><strong>{{max_donate}}</strong>
+                <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
+          <div class="myPanel">
+            <div class="panelHead">
+              <h3 class="panel-title"><strong>Средний размер донатов</strong></h3>
+            </div>
+            <div class="panel-body ">
+              <h2 class="panelup"><strong>{{average_donate|floatformat:0}}</strong>
+                <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
+            </div>
           </div>
         </div>
       </div>
+    {% else %}
+      <div class="noDonation">
+        <p style="margin-bottom: 15px"> К сожалению, у Вас отсутствуют донаты для расчета <b>статистики</b> :( </p>
+      </div>
+    {% endif %}
+  </div>
 
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-            <h2 class="panel-title"><strong>Количество донатов</strong></h2>
-          </div>
-          <div class="panel-body">
-            <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
-              <small><span class="glyphicon glyphicon-stats"></span></small></h2>
-          </div>
-        </div>
+  {% if day_donator %}
+    <div class="profile-content border dayDonator col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <a target="_blank" href="https://vk.com/id{{ month_donator.donater_id }}">
+          <img src="{{ day_donator_img }}" class="img-circle">
+        </a>
       </div>
 
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-              <h2 class="panel-title "><strong>Самый большой донат</strong></h2>
-          </div>
-          <div class="panel-body">
-            {% if maxDonate %}
-              <h2  class="panelup"><strong>{{maxDonate.0.donation_size}}</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% else %}
-              <h2  class="panelup"><strong>0</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% endif %}
-          </div>
-        </div>
-      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 dayDonatorStats">
+        <h3><strong>Донатер дня</strong></h3>
 
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-            <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
-          </div>
-          <div class="panel-body ">
-            <h2 class="panelup"><strong>{{averageDonate}}</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-            <h2 class="panel-title"><strong>Общая сумма донатов</strong></h2>
-          </div>
-          <div class="panel-body">
-            {% if group.group_summOfAllDonations == 0 %}
-              <h2  class="panelup"><strong>0</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% else %}
-              <h2  class="panelup"><strong>{{group.group_summOfAllDonations}}</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-            <h2 class="panel-title"><strong>Количество донатов</strong></h2>
-          </div>
-          <div class="panel-body">
-            <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
-              <small><span class="glyphicon glyphicon-stats"></span></small></h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-              <h2 class="panel-title "><strong>Самый маленький донат</strong></h2>
-          </div>
-          <div class="panel-body">
-            {% if maxDonate %}
-              <h2  class="panelup"><strong>{{maxDonate.0.donation_size}}</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% else %}
-              <h2  class="panelup"><strong>0</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 text-center">
-        <div class="myPanel">
-          <div class="panelHead">
-            <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
-          </div>
-          <div class="panel-body ">
-            <h2 class="panelup"><strong>{{averageDonate}}</strong>
-              <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
-          </div>
+        <div class="timeDonator">
+          <p><i class="glyphicon glyphicon-user"></i> <a target="_blank" href="https://vk.com/id{{ day_donator.donater_id }}">
+            {{ day_donator.donater_firtstName }}
+            {{ day_donator.donater_secondName }}</a></p>
+          <p><i class="glyphicon glyphicon-rub"></i> {{ day_donator.sum_donations }}</p>
         </div>
       </div>
     </div>
-  </div>
+  {% endif %}
 
-  <div class="profile-content border col-md-6" style="width: 49.15%; margin-right: 15px;padding-bottom: 10px">
-    <h2 class="tableTitle text-center">Донатер дня</h2>
-    <h2 class="hidden-xs tableTitle text-center">Misha1</h2>
-  </div>
+  {% if month_donator %}
+    <div class=" profile-content border monthDonator col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-  <div class="profile-content border col-md-6" style="width: 49.15%;padding-bottom: 10px">
-    <h2 class="hidden-xs tableTitle text-center">Донатер месяца</h2>
-    <h2 class="hidden-xs tableTitle text-center">Misha2</h2>
-  </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <a target="_blank" href="https://vk.com/id{{ month_donator.donater_id }}">
+          <img src="{{ month_donator_img }}" class="img-circle">
+        </a>
+      </div>
 
-  <div class="profile-content border col-md-12" style="padding-bottom: 10px">
-    <h2 class="hidden-xs tableTitle text-center">Таблица? График?</h2>
-    <h2 class="hidden-xs tableTitle text-center">СТАТИСТИКА</h2>
-  </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 monthDonatorStats">
+        <h3><strong>Донатер месяца</strong></h3>
+
+        <div class="timeDonator">
+          <p><i class="glyphicon glyphicon-user"></i> <a target="_blank" href="https://vk.com/id{{ month_donator.donater_id }}">
+            {{ month_donator.donater_firtstName }}
+            {{ month_donator.donater_secondName }}</a></p>
+          <p><i class="glyphicon glyphicon-rub"></i> {{ month_donator.sum_donations }}</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
 
 
 {% block activeStatistics %}

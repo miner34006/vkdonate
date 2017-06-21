@@ -35,6 +35,14 @@ class User():
       data = dict(data[0].items())
       return data['last_name']
 
+    @staticmethod
+    def getImage(id):
+      options = {}
+      options.update({'user_id': id, 'fields':'photo_200'})
+      data = VK.getRequest("users.get", options)
+      data = dict(data[0].items())
+      return data['photo_200']
+
     def getID(self):
         return self.ID
 

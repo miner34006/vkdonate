@@ -24,10 +24,10 @@
               {{ donater.donater_secondName }}</a>
             </td>
             <td>{{ donater.donater_firtstName }}</td>
-            <td><a href="https://vk.com/id{{ donater.donater_id }}">
+            <td><a target="_blank" href="https://vk.com/id{{ donater.donater_id }}">
               {{donater.donater_id}}</a>
             </td>
-            <td>{{ donater.donater_summOfAllDonations }}</td>
+            <td>{{ donater.donation_sum }}</td>
           </tr>
         {% endfor %}
       </tbody>

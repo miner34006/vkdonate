@@ -15,7 +15,7 @@
           <h2 class="panel-title"><strong>Общий размер донатов</strong></h2>
         </div>
         <div class="panel-body">
-          <h2 class="panelup"><strong>{{donater.donater_summOfAllDonations}}</strong>
+          <h2 class="panelup"><strong>{{sum_donation}}</strong>
             <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
         </div>
       </div>
@@ -27,7 +27,7 @@
           <h2 class="panel-title"><strong>Количество донатов</strong></h2>
         </div>
         <div class="panel-body">
-          <h2  class="panelup"><strong>{{numberOfDonations}}</strong>
+          <h2  class="panelup"><strong>{{number_donations}}</strong>
             <small><span class="glyphicon glyphicon-stats"></span></small></h2>
         </div>
       </div>
@@ -39,7 +39,7 @@
           <h2 class="panel-title"><strong>Самый большой донат</strong></h2>
         </div>
         <div class="panel-body">
-          <h2  class="panelup"><strong>{{maxDonate.0.donation_size}}</strong>
+          <h2  class="panelup"><strong>{{max_donate}}</strong>
             <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <h2 class="panel-title"><strong>Средний размер донатов</strong></h2>
         </div>
         <div class="panel-body">
-          <h2  class="panelup"><strong>{{averageDonate}}</strong>
+          <h2 class="panelup"><strong>{{ average_donate|floatformat:0}}</strong>
             <small><span class="glyphicon glyphicon-ruble"></span></small></h2>
         </div>
       </div>

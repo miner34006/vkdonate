@@ -32,6 +32,12 @@ ALLOWED_HOSTS = [u'62.109.15.129',
 	          'vkdonate.ru',
 		            ]
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'vkdonate.work@gmail.com'
+EMAIL_HOST_PASSWORD = 'kudeyxajinwnlthg'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -105,7 +111,6 @@ DATABASES = {
       'PORT': '',
   }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

@@ -24,6 +24,18 @@ class Admin(models.Model):
     db_table = "admins"
 
   @staticmethod
+  def GetMaxDonate(request):
+    from django.db.models import Max
+    maxDonate = Admin.getDonations(request).aggregate(max_donate=Max('donation_size'))
+    return maxDonate['max_donate']
+
+  @staticmethod
+  def getAverageDonate(request):
+    from django.db.models import Avg
+    average = Admin.getDonations(request).aggregate(average_donate=Avg('donation_size'))
+    return average['average_donate']
+
+  @staticmethod
   def getDonations(request):
     return Donation.objects.filter(donation_admin = Admin.getUsername(request))
 
@@ -59,6 +71,8 @@ class Admin(models.Model):
   def isAuthenticated(request):
     return auth.get_user(request).is_authenticated
 
+  admin_firstName = models.CharField(max_length=50, default="FirstName")
+  admin_secondName = models.CharField(max_length=50, default="SecondName")
   admin_id = models.IntegerField(primary_key=True, unique=True)
   admin_token = models.CharField(max_length=200)
   user = models.OneToOneField(User)
@@ -72,6 +86,12 @@ class Group(models.Model):
 
   class Meta():
     db_table = "groups"
+
+  @staticmethod
+  def getSumOfDonations(request, group):
+    from django.db.models import Sum
+    donations = Group.getDonations(request, group).aggregate(donation_sum = Sum('donation_size'))
+    return donations['donation_sum']
 
   @staticmethod
   def getGroup(group):
@@ -98,20 +118,18 @@ class Group(models.Model):
 
   @staticmethod
   def getMaxDonate(request, group):
-    return Group.getDonations(request, group).order_by('-donation_size')[:1].values()
+    from django.db.models import Max
+    maxDonate = Group.getDonations(request, group).aggregate(max_donate = Max('donation_size'))
+    return maxDonate['max_donate']
 
   @staticmethod
   def getAverageDonate(request, group):
     from django.db.models import Avg
-    if Group.hasDonations(request, group):
-      averageDonate = Group.getDonations(request, group).aggregate(Avg('donation_size'))
-      return round(averageDonate['donation_size__avg'], 1)
-    else:
-      return 0
+    average = Group.getDonations(request, group).aggregate(average_donate=Avg('donation_size'))
+    return average['average_donate']
 
   group_id = models.IntegerField(primary_key=True)
   group_admin = models.ForeignKey(Admin)
-  group_summOfAllDonations = models.FloatField(default= 0)
 
 ########################################################################################
 
@@ -123,6 +141,12 @@ class Donater(models.Model):
   class Meta():
     db_table = "donaters"
     ordering = ['donater_secondName']
+
+  @staticmethod
+  def getSumOfDonations(request, donater):
+    from django.db.models import Sum
+    donations = Donater.getDonations(request, donater).aggregate(donation_sum = Sum('donation_size'))
+    return donations['donation_sum']
 
   @staticmethod
   def getDonater(donater):
@@ -145,15 +169,14 @@ class Donater(models.Model):
   @staticmethod
   def getAverageDonate(request, donater):
     from django.db.models import Avg
-    if Donater.hasDonations(request, donater):
-      averageDonate = Donater.getDonations(request, donater).aggregate(Avg('donation_size'))
-      return round(averageDonate['donation_size__avg'], 1)
-    else:
-      return 0
+    average = Donater.getDonations(request, donater).aggregate(average_donate = Avg('donation_size'))
+    return average['average_donate']
 
   @staticmethod
   def getMaxDonate(request, donater):
-    return Donater.getDonations(request, donater).order_by('-donation_size')[:1].values()
+    from django.db.models import Max
+    donation = Donater.getDonations(request, donater).aggregate(max_donate = Max('donation_size'))
+    return donation['max_donate']
 
   @staticmethod
   def belongToAdmin(request, donater):
@@ -164,7 +187,6 @@ class Donater(models.Model):
   donater_secondName = models.CharField(max_length=50, default='SecondName')
   donater_id = models.IntegerField(primary_key=True)
   donater_admin = models.ForeignKey(Admin)
-  donater_summOfAllDonations = models.FloatField(default= 0)
 
 ########################################################################################
 
@@ -179,7 +201,7 @@ class Donation(models.Model):
 
   donation_date = models.DateTimeField()
   donation_text = models.CharField(max_length=100)
-  donation_size = models.FloatField()
+  donation_size = models.IntegerField()
   donation_donater = models.ForeignKey(Donater)
   donation_group = models.ForeignKey(Group)
   donation_admin = models.ForeignKey(Admin)
