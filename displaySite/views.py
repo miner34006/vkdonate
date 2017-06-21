@@ -179,7 +179,8 @@ def statistics(request):
      'day_donator' : dayDonator,
      'day_donator_img' : day_donator_img,
      'month_donator_img': month_donator_img,
-     'month_donator': monthDonator})
+     'month_donator': monthDonator,
+     'has_data': True})
 
 ########################################################################################
 
