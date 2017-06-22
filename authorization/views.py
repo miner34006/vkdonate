@@ -36,12 +36,9 @@ def authorization(request):
     return redirect('/')
   else:
     createUser(id, data)
-
     user = auth.authenticate(username = id)
     auth.login(request, user)
-
     sendRegistrationMail(id)
-
     return redirect('/')
 
 ########################################################################################

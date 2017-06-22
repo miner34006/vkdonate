@@ -6,9 +6,15 @@ sys.path.append("/home/django/vkdonate/vkapi/class")
 sys.path.append("/home/django/vkdonate/displaySite")
 
 from django.shortcuts import render_to_response, redirect
-from displaySite.models import Donater, Donation, Admin, Group
+from displaySite.models import Donater, Admin, Group
 from django.core.paginator import Paginator
 from django.db.models import Sum
+
+from Group import Group as vk_group
+from User import User as vk_user
+
+from displaySite.utils import dayDonator, monthDonator
+from displaySite.utils import getGroupsPhoto, connectImgAndId
 
 ########################################################################################
 
@@ -38,8 +44,6 @@ def currentDonater(request, donater_id, pageNumber = 1):
 ########################################################################################
 
 def currentGroup(request, group_id, pageNumber = 1):
-  from Group import Group as vk_group
-
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
@@ -110,8 +114,6 @@ def donations(request, pageNumber = 1):
 ########################################################################################
 
 def groups(request):
-  from utils import getGroupsPhoto, connectImgAndId
-
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
@@ -145,9 +147,6 @@ def settings(request):
 ########################################################################################
 
 def statistics(request):
-  from utils import dayDonator, monthDonator
-  from User import User as vk_user
-
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
@@ -157,15 +156,15 @@ def statistics(request):
        {'user_id': Admin.getUsername(request),
         'has_data' : False})
 
-  dayDonator = dayDonator(request)
-  if dayDonator:
-    day_donator_img = vk_user.getImage(dayDonator.donater_id)
+  dayD = dayDonator(request)
+  if dayD:
+    day_donator_img = vk_user.getImage(dayD.donater_id)
   else:
     day_donator_img = None
 
-  monthDonator = monthDonator(request)
-  if monthDonator:
-    month_donator_img = vk_user.getImage(monthDonator.donater_id)
+  monthD = monthDonator(request)
+  if monthD:
+    month_donator_img = vk_user.getImage(monthD.donater_id)
   else:
     month_donator_img = None
 
@@ -176,10 +175,10 @@ def statistics(request):
      'number_donation' : Admin.getDonations(request).count(),
      'sum_donation' : Admin.getDonations(request).aggregate(Sum('donation_size'))['donation_size__sum'],
      'average_donate': Admin.getAverageDonate(request),
-     'day_donator' : dayDonator,
+     'day_donator' : dayD,
      'day_donator_img' : day_donator_img,
      'month_donator_img': month_donator_img,
-     'month_donator': monthDonator,
+     'month_donator': monthD,
      'has_data': True})
 
 ########################################################################################

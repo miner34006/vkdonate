@@ -28,9 +28,25 @@ class User():
       return data['first_name']
 
     @staticmethod
+    def getENFirstName(id):
+      options = {}
+      options.update({'user_id': id, 'lang':'en'})
+      data = VK.getRequest("users.get", options)
+      data = dict(data[0].items())
+      return data['first_name']
+
+    @staticmethod
     def getLastName(id):
       options = {}
       options.update({'user_id': id})
+      data = VK.getRequest("users.get", options)
+      data = dict(data[0].items())
+      return data['last_name']
+
+    @staticmethod
+    def getENLastName(id):
+      options = {}
+      options.update({'user_id': id, 'lang':'en'})
       data = VK.getRequest("users.get", options)
       data = dict(data[0].items())
       return data['last_name']
