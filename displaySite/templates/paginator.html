@@ -5,7 +5,8 @@
       <ul class="pagination">
         {% if objects.has_previous %}
           <li>
-            <a aria-label="Previous" href="/{{ objectName }}/page/{{ objects.previous_page_number }}/">
+            <a id="{{ objects.number|add:'-1' }}" class="prev" aria-label="Previous"
+               href="/{{ objectName }}/page/{{ objects.previous_page_number }}/">
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
@@ -58,7 +59,7 @@
 
         {% if objects.has_next %}
           <li>
-            <a aria-label="Next" href="/{{ objectName }}/page/{{ objects.next_page_number }}/">
+            <a id="{{ objects.number|add:'1' }}" class="nex" aria-label="Next" href="/{{ objectName }}/page/{{ objects.next_page_number }}/">
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>

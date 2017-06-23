@@ -5,16 +5,21 @@ sys.path.append("/home/bogdan/Documents/python/vkDonate/vkapi/class")
 sys.path.append("/home/django/vkdonate/vkapi/class")
 sys.path.append("/home/django/vkdonate/displaySite")
 
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import HttpResponse, render_to_response, redirect
 from displaySite.models import Donater, Admin, Group
 from django.core.paginator import Paginator
 from django.db.models import Sum
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.core import serializers
+from django.forms.models import model_to_dict
 
 from Group import Group as vk_group
 from User import User as vk_user
 
 from displaySite.utils import dayDonator, monthDonator
 from displaySite.utils import getGroupsPhoto, connectImgAndId
+
 
 ########################################################################################
 
@@ -43,6 +48,8 @@ def currentDonater(request, donater_id, pageNumber = 1):
 
 ########################################################################################
 
+
+@login_required
 def currentGroup(request, group_id, pageNumber = 1):
   if not Admin.isAuthenticated(request):
     return redirect('/')
@@ -54,18 +61,22 @@ def currentGroup(request, group_id, pageNumber = 1):
   donationsList = Group.getDonations(request, group_id)
   paginator = Paginator(donationsList, 10)
 
-  return render_to_response('currentGroup.html',
-    {'group_id' : group_id,
-     'objects' : paginator.page(pageNumber),
-     'pages' : paginator.num_pages,
-     'objectName' : "currentGroup/get/%s" % group_id,
-     'name' : vk_group.getName(group_id),
-     'last_donate' : Admin.getLastDonate(request),
-     'max_donate' : Group.getMaxDonate(request, group_id),
-     'sum_donation' : Group.getSumOfDonations(request, group_id),
-     'number_donation' : Group.countDonations(request, group_id),
-     'average_donate': Group.getAverageDonate(request, group_id),
-     'user_id' : Admin.getUsername(request)})
+  groups = getGroupsPhoto(Admin.getGroups(request))
+  data = connectImgAndId(groups)
+
+  data = {
+          'objects': paginator.page(pageNumber),
+          'pages': paginator.num_pages,
+          'group_id': group_id,
+          'objectName': "currentGroup/get/%s" % group_id,
+          'name': vk_group.getName(group_id),
+          'objectName': "currentGroup/get/%s" % group_id,
+          'max_donate': Group.getMaxDonate(request, group_id),
+          'sum_donation': Group.getSumOfDonations(request, group_id),
+          'number_donation': Group.countDonations(request, group_id),
+          'average_donate': Group.getAverageDonate(request, group_id),
+  }
+  return render_to_response('currentGroup.html', data)
 
 ########################################################################################
 
@@ -123,10 +134,10 @@ def groups(request):
        {'user_id': Admin.getUsername(request)})
 
   groups = getGroupsPhoto(Admin.getGroups(request))
-
   data = connectImgAndId(groups)
-  data.update({'last_donate': Admin.getLastDonate(request),
-               'user_id': Admin.getUsername(request)})
+
+  data.update({'last_donate' : Admin.getLastDonate(request),
+               'user_id' : Admin.getUsername(request)})
   return render_to_response('groups.html', data)
 
 ########################################################################################
@@ -140,9 +151,13 @@ def settings(request):
       ('settings.html',
        {'user_id': Admin.getUsername(request)})
 
-  return render_to_response('settings.html',
-    {'last_donate': Admin.getLastDonate(request),
-     'user_id': Admin.getUsername(request)})
+  groups = getGroupsPhoto(Admin.getGroups(request))
+  data = connectImgAndId(groups)
+
+  data.update({'last_donate': Admin.getLastDonate(request),
+               'user_id': Admin.getUsername(request)})
+
+  return render_to_response('settings.html', data)
 
 ########################################################################################
 
@@ -168,12 +183,16 @@ def statistics(request):
   else:
     month_donator_img = None
 
+  sum_donation = Admin.getDonations(request).aggregate(Sum('donation_size'))['donation_size__sum']
+  if sum_donation == None:
+    sum_donation = 0
+
   return render_to_response('statistics.html',
     {'last_donate': Admin.getLastDonate(request),
      'user_id': Admin.getUsername(request),
      'max_donate': Admin.GetMaxDonate(request),
      'number_donation' : Admin.getDonations(request).count(),
-     'sum_donation' : Admin.getDonations(request).aggregate(Sum('donation_size'))['donation_size__sum'],
+     'sum_donation' : sum_donation,
      'average_donate': Admin.getAverageDonate(request),
      'day_donator' : dayD,
      'day_donator_img' : day_donator_img,

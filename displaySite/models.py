@@ -27,13 +27,19 @@ class Admin(models.Model):
   def GetMaxDonate(request):
     from django.db.models import Max
     maxDonate = Admin.getDonations(request).aggregate(max_donate=Max('donation_size'))
-    return maxDonate['max_donate']
+    if maxDonate['max_donate'] == None:
+      return 0
+    else:
+      return maxDonate['max_donate']
 
   @staticmethod
   def getAverageDonate(request):
     from django.db.models import Avg
     average = Admin.getDonations(request).aggregate(average_donate=Avg('donation_size'))
-    return average['average_donate']
+    if average['average_donate'] == None:
+      return 0
+    else:
+      return average['average_donate']
 
   @staticmethod
   def getDonations(request):
@@ -57,7 +63,7 @@ class Admin(models.Model):
 
   @staticmethod
   def hasDonations(request):
-    return Admin.getDonaters(request).exists()
+    return Admin.getDonations(request).exists()
 
   @staticmethod
   def hasGroups(request):
@@ -91,7 +97,10 @@ class Group(models.Model):
   def getSumOfDonations(request, group):
     from django.db.models import Sum
     donations = Group.getDonations(request, group).aggregate(donation_sum = Sum('donation_size'))
-    return donations['donation_sum']
+    if donations['donation_sum'] == None:
+      return 0
+    else:
+      return donations['donation_sum']
 
   @staticmethod
   def getGroup(group):
@@ -120,13 +129,19 @@ class Group(models.Model):
   def getMaxDonate(request, group):
     from django.db.models import Max
     maxDonate = Group.getDonations(request, group).aggregate(max_donate = Max('donation_size'))
-    return maxDonate['max_donate']
+    if maxDonate['max_donate'] == None:
+      return 0
+    else:
+      return maxDonate['max_donate']
 
   @staticmethod
   def getAverageDonate(request, group):
     from django.db.models import Avg
     average = Group.getDonations(request, group).aggregate(average_donate=Avg('donation_size'))
-    return average['average_donate']
+    if average['average_donate'] == None:
+      return 0
+    else:
+      return average['average_donate']
 
   group_id = models.IntegerField(primary_key=True)
   group_admin = models.ForeignKey(Admin)
@@ -146,7 +161,10 @@ class Donater(models.Model):
   def getSumOfDonations(request, donater):
     from django.db.models import Sum
     donations = Donater.getDonations(request, donater).aggregate(donation_sum = Sum('donation_size'))
-    return donations['donation_sum']
+    if donations['donation_sum'] == None:
+      return 0
+    else:
+      return donations['donation_sum']
 
   @staticmethod
   def getDonater(donater):
@@ -170,13 +188,19 @@ class Donater(models.Model):
   def getAverageDonate(request, donater):
     from django.db.models import Avg
     average = Donater.getDonations(request, donater).aggregate(average_donate = Avg('donation_size'))
-    return average['average_donate']
+    if average['average_donate'] == None:
+      return 0
+    else:
+      return average['average_donate']
 
   @staticmethod
   def getMaxDonate(request, donater):
     from django.db.models import Max
     donation = Donater.getDonations(request, donater).aggregate(max_donate = Max('donation_size'))
-    return donation['max_donate']
+    if donation['max_donate'] == None:
+      return 0
+    else:
+      return donation['max_donate']
 
   @staticmethod
   def belongToAdmin(request, donater):

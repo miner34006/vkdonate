@@ -1,27 +1,38 @@
 {% extends "content.html" %}
+{% load staticfiles %}
 
-{% block tableData %}
+<a href="/currentGroup/get/{{ group.group_id }}"> </a>
+
+{% block groupSlider %}
   <div class="profile-content border">
-  <h1 class="visible-xs text-center tableTitle">Мои группы</h1>
-  <h1 class="hidden-xs tableTitle">Мои группы</h1>
+  <h1 class="tableTitle">Мои группы</h1>
+
   {% if data %}
-    <hr class="hrGroup">
-  {% endif %}
-  {% if data %}
-  <div class="row">
-  {% for group in data %}
-    <div class="col-xs-6 col-sm-4 col-lg-2 col-md-3 group">
-      <a class="visible-xs" href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="195" height="195" class="img-responsive img-circle center" alt="Generic placeholder thumbnail"></a>
-      <a class="hidden-xs" href="/currentGroup/get/{{ group.group_id }}"><img src="{{group.link}}" width="195" height="195" class="img-responsive img-circle" alt="Generic placeholder thumbnail"></a>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for group in data %}
+        <div class="swiper-slide">
+          <a id="#cont_search_arenda" onclick="return false;" href="#cont_search_arenda">
+            <img src="{{group.link}}" class="center img-circle" id="{{ group.group_id }}">
+          </a>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
+    <div class="swiper-pagination"></div>
   </div>
   {% else %}
-    <div class="noDonation">
+  <div class="noDonation">
       <p>К сожалению, Вы еще не добавили группы :( Вы можете сделать это в <a class="alert-link" href="/settings/">настройках</a>!</p>
     </div>
   {% endif %}
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{% static "js/sliderActive.js" %}"></script>
+
+  <div id="add" class="hidden">
+  </div>
+
 {% endblock %}
 
 {% block activeGroups %}
@@ -31,4 +42,9 @@
       Группы
     </a>
   </li>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static "js/swiper.min.js" %}"></script>
+  <script src="{% static "js/slider.js" %}"></script>
 {% endblock %}

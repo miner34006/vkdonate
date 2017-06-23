@@ -1,3 +1,24 @@
+.swiper-container {
+  width: 100%;
+  height: 200px;
+}
+
+.swiper-container > .swiper-wrapper {
+  padding-top:20px;
+}
+
+.swiper-container img{
+  width: 70%;
+}
+
+@media screen and (max-width: 767px)  {
+  .swiper-container img{
+    width: 70%;
+  }
+}
+
+/* ############################################# */
+
 .text p{
   border-left: 4px solid #6285AF;
   margin-bottom: 0px;
@@ -12,6 +33,15 @@
     border-left: none;
     padding-left: 5px;
     padding-right: 5px;
+  }
+}
+
+@media screen and (max-width: 767px)  {
+  .information p{
+
+  }
+  .information h3{
+
   }
 }
 
@@ -220,6 +250,12 @@ body {
 
 .tableTitle{
   margin-top: 0px;
+}
+
+@media screen and (max-width: 767px) {
+  .tableTitle {
+    text-align: center;
+  }
 }
 
 .tableHead{
@@ -444,6 +480,12 @@ body {
 
 
 /* #################### стили панелей #################### */
+@media screen and (max-width: 767px)  {
+  .panelTitle{
+    text-align: center;
+  }
+}
+
 .panelTitle{
   color: #45668e;
   margin-top: 0px;
