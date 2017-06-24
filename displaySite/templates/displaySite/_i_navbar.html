@@ -18,46 +18,46 @@
 
           <li>
             <a href="/">
-            <i class="glyphicon glyphicon-home"></i>
-            Главная </a>
+              <i class="glyphicon glyphicon-home"></i> Главная
+            </a>
           </li>
 
           {% if user_id %}
           <li>
-            <a href="/donations/" class="">
-            <i class="glyphicon glyphicon-gift"></i>
-            Донаты </a>
+            <a href="{% url "donations" %}">
+              <i class="glyphicon glyphicon-gift"></i> Донаты
+            </a>
           </li>
 
           <li>
-            <a href="/donaters/" class="">
-            <i class="glyphicon glyphicon-user"></i>
-            Донатеры </a>
+            <a href="{% url "donators" %}">
+             <i class="glyphicon glyphicon-user"></i> Донатеры
+            </a>
           </li>
 
            <li>
-            <a href="/groups/" class="">
-            <i class="glyphicon glyphicon-flag"></i>
-            Группы </a>
+            <a href="{% url "groups" %}">
+              <i class="glyphicon glyphicon-flag"></i> Группы
+            </a>
           </li>
 
           <li>
-            <a href="/settings/" class="">
-            <i class="glyphicon glyphicon-cog"></i>
-            Настройки </a>
+            <a href="{% url "settings" %}">
+              <i class="glyphicon glyphicon-cog"></i> Настройки
+            </a>
           </li>
 
           <li>
-            <a href="/statistics/" class="">
-            <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i>
-            Статистика </a>
+            <a href="{% url "statistics" %}">
+              <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i> Статистика
+            </a>
           </li>
           {% endif %}
 
           <li>
-            <a href="/information/" class="">
-            <i class="glyphicon glyphicon-info-sign"></i>
-            О проекте</a>
+            <a href="{% url "information" %}">
+              <i class="glyphicon glyphicon-info-sign"></i> О проекте
+            </a>
           </li>
 
         </ul>

@@ -151,7 +151,7 @@ class Group(models.Model):
 class Donater(models.Model):
 
   def __str__(self):
-    return '%s %s' % (self.donater_firtstName.encode('utf8'), self.donater_secondName.encode('utf8'))
+    return '%s %s' % (self.donater_firtstName, self.donater_secondName)
 
   class Meta():
     db_table = "donaters"
