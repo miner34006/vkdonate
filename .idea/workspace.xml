@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8b54405-d56a-4465-baea-5aa7839989e2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/displaySite/static/js/display_scripts.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/models.py" afterPath="$PROJECT_DIR$/displaySite/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/static/css/style.css" afterPath="$PROJECT_DIR$/displaySite/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/displaySite/templates/displaySite/_i_navbar.html" afterPath="$PROJECT_DIR$/displaySite/templates/displaySite/_i_navbar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/__base.html" afterPath="$PROJECT_DIR$/templates/__base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,8 +36,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/displaySite/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="156" column="25" lean-forward="true" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
+            <state relative-caret-position="-1998">
+              <caret line="90" column="49" lean-forward="false" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -1203,8 +1198,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/displaySite/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="156" column="25" lean-forward="true" selection-start-line="156" selection-start-column="25" selection-end-line="156" selection-end-column="25" />
+        <state relative-caret-position="-1998">
+          <caret line="90" column="49" lean-forward="false" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
           <folding />
         </state>
       </provider>

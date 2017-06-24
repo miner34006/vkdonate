@@ -88,7 +88,7 @@ class Admin(models.Model):
 class Group(models.Model):
 
   def __str__(self):
-    return "%s" % vk_group.getName(self.group_id).encode('utf-8')
+    return "%s" % vk_group.getName(self.group_id)
 
   class Meta():
     db_table = "groups"
@@ -217,7 +217,7 @@ class Donater(models.Model):
 class Donation(models.Model):
 
   def __str__(self):
-    return '%s' % self.donation_text.encode('utf8')
+    return '%s' % self.donation_text
 
   class Meta():
     db_table = "donations"
