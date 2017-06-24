@@ -17,12 +17,12 @@ def createUser(id, data):
   import re
 
   user = User.objects.create_user(username=int(id), password=random_id(15, True),
-                                  first_name=vk_user.getFirstName(id), last_name=vk_user.getLastName(id))
+                                  first_name=vk_user.getENFirstName(id), last_name=vk_user.getENLastName(id))
   user.save()
   token = re.findall(r'access_token":"(\w+)"', data)[0]
 
   admin = Admin(admin_id=int(id), admin_token=token, user=user,
-                admin_firstName=vk_user.getFirstName(id), admin_secondName=vk_user.getLastName(id))
+                admin_firstName=vk_user.getENFirstName(id), admin_secondName=vk_user.getENLastName(id))
   admin.save()
   return user
 

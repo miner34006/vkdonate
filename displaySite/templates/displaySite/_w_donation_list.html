@@ -1,0 +1,42 @@
+{% extends "displaySite/__l_left_sidebar.html" %}
+
+{% block main_col %}
+  <div class="profile-content border moreSpace">
+    <h1 class="tableTitle">Мои донаты</h1>
+    {% if objects %}
+      <div class="table-responsive myTable">
+        <table class="table table-hover myTable">
+          <thead class="tableHead donation">
+            <tr>
+              <th>#</th>
+              <th>Дата</th>
+              <th>ID</th>
+              <th>Размер</th>
+              <th>Текст</th>
+            </tr>
+          </thead>
+          <tbody class="tableBody donation">
+            {% for donation in objects %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ donation.donation_date|date:"SHORT_DATE_FORMAT"}}</td>
+                <td>
+                  <a href="{% url "select_donator" donation.donation_donater.donater_id %}">
+                    {{ donation.donation_donater.donater_id }}
+                  </a>
+                </td>
+                <td>{{ donation.donation_size }}</td>
+                <td>{{donation.donation_text}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% include "displaySite/_i_paginator.html" %}
+    {% else %}
+      <div class="noDonation">
+        <p> К сожалению, у Вас отсутствуют <b> донаты </b> :( </p>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

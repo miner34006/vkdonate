@@ -1,0 +1,48 @@
+{% block quickOverview %}
+  <div class="profile-content-for-current border">
+    <a id="{{ group_id }} " class="group_id" target="_blank" href="https://vk.com/club{{group_id}}"><h1 id="name" class="panelTitle">{{ name }}</h1></a>
+    <hr class="line">
+    {% include "displaySite/_i_quick_statistics.html" %}
+  </div>
+{% endblock %}
+
+{% block tableData %}
+  <div class="profile-content border moreSpace">
+  <h2 class="tableTitle">Донаты в группе</h2>
+  {% if objects %}
+  <div class="table-responsive myTable">
+    <table class="table table-hover myTable">
+      <thead>
+        <tr class="tableHead donation">
+          <th>#</th>
+          <th>Дата</th>
+          <th>ID</th>
+          <th>Размер</th>
+          <th>Текст</th>
+        </tr>
+      </thead>
+      <tbody id = "objects" class="tableBody donation">
+        {% for donation in objects %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ donation.donation_date|date:"SHORT_DATE_FORMAT" }}</td>
+            <td>
+              <a href="{% url "select_donator" donation.donation_donater.donater_id %}">
+                {{ donation.donation_donater.donater_id }}
+              </a>
+            </td>
+            <td>{{ donation.donation_size }}</td>
+            <td>{{donation.donation_text}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    {% include "displaySite/_i_paginator.html" %}
+  {% else %}
+    <div class="noDonation">
+      <p>В этой группе Вам еще никто не задонатил!</p>
+    </div>
+  {% endif %}
+  </div>
+{% endblock %}

@@ -23,23 +23,14 @@
 
   </head>
   <body>
-    {% include "navbar.html" %}
+    {% include "displaySite/_i_navbar.html" %}
 
-    {# Левый сайд-бар #}
-    <div class="col-lg-offset-1 col-lg-2 col-md-3 col-sm-3 sidebar">
-      {% block sideControl %} {% endblock %}
-      {% block lastDonate %}{% endblock %}
-    </div>
+    {% block content %} {% endblock %}
 
-    {# Основной блок #}
-    <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 main">
-      {% block data %} {% endblock %}
-      {% block news %} {% endblock %}
-    </div>
-
-    {% block scripts %}{% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {% block scripts %}{% endblock %}
     <script src="{% static "js/bootstrap.js" %}"></script>
-    <script src="{% static "js/fabric.js" %}"></script>
+    <!--<script src="{% static "js/fabric.js" %}"></script>-->
+    <script src="{% static "js/display_scripts.js" %}"></script>
   </body>
 </html>

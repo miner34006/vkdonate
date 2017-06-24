@@ -1,6 +1,6 @@
-{% extends "content.html" %}
+{% extends "displaySite/__l_left_sidebar.html" %}
 
-{% block information %}
+{% block main_col %}
   <div class="profile-content border">
     <h1 class="tableTitle">О проекте</h1>
     <hr class="line">
@@ -76,13 +76,4 @@
           </address>
     </div>
   </div>
-{% endblock %}
-
-{% block activeInformation %}
-  <li class="active">
-    <a href="/information/" class="">
-      <i class="glyphicon glyphicon-info-sign"></i>
-      О проекте
-    </a>
-  </li>
 {% endblock %}

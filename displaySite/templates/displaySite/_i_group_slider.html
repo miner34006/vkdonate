@@ -1,0 +1,20 @@
+{% block groupSlider %}
+  {% if data %}
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for group in data %}
+          <div class="swiper-slide">
+            <a onclick="return false;" href="#">
+              <img src="{{group.link}}" class="center img-circle" id="{{ group.group_id }}">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  {% else %}
+    <div class="noDonation">
+      <p>К сожалению, Вы еще не добавили группы :( Вы можете сделать это в <a class="alert-link" href="/settings/">настройках</a>!</p>
+    </div>
+  {% endif %}
+{% endblock %}

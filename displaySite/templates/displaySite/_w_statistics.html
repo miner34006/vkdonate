@@ -1,0 +1,60 @@
+{% extends "displaySite/__l_left_sidebar.html" %}
+
+{% block main_col %}
+  <div class="profile-content-for-current border">
+    <h1 class="tableTitle">Статистика</h1>
+
+    {% block quick_statistics %}
+      {% if has_data %}
+        <hr class="line">
+        {% include "displaySite/_i_quick_statistics.html" %}
+      {% else %}
+        <div class="noDonation">
+          <p style="margin-bottom: 15px"> К сожалению, у Вас отсутствуют донаты для расчета <b>статистики</b> :( </p>
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+
+  {% if day_donator %}
+    <div class="profile-content border dayDonator col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <a target="_blank" href="https://vk.com/id{{ month_donator.donater_id }}">
+          <img src="{{ day_donator_img }}" class="img-circle">
+        </a>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 dayDonatorStats">
+        <h3><strong>Донатер дня</strong></h3>
+
+        <div class="timeDonator">
+          <p><i class="glyphicon glyphicon-user"></i> <a target="_blank" href="https://vk.com/id{{ day_donator.donater_id }}">
+            {{ day_donator.donater_firtstName }}
+            {{ day_donator.donater_secondName }}</a></p>
+          <p><i class="glyphicon glyphicon-rub"></i> {{ day_donator.sum_donations }}</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if month_donator %}
+    <div class=" profile-content border monthDonator col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <a target="_blank" href="https://vk.com/id{{ month_donator.donater_id }}">
+          <img src="{{ month_donator_img }}" class="img-circle">
+        </a>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 monthDonatorStats">
+        <h3><strong>Донатер месяца</strong></h3>
+
+        <div class="timeDonator">
+          <p><i class="glyphicon glyphicon-user"></i> <a target="_blank" href="https://vk.com/id{{ month_donator.donater_id }}">
+            {{ month_donator.donater_firtstName }}
+            {{ month_donator.donater_secondName }}</a></p>
+          <p><i class="glyphicon glyphicon-rub"></i> {{ month_donator.sum_donations }}</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}

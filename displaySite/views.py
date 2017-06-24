@@ -5,20 +5,31 @@ sys.path.append("/home/bogdan/Documents/python/vkDonate/vkapi/class")
 sys.path.append("/home/django/vkdonate/vkapi/class")
 sys.path.append("/home/django/vkdonate/displaySite")
 
-from django.shortcuts import HttpResponse, render_to_response, redirect
+from django.shortcuts import render_to_response, redirect, render
 from displaySite.models import Donater, Admin, Group
 from django.core.paginator import Paginator
 from django.db.models import Sum
-from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.core import serializers
-from django.forms.models import model_to_dict
+from django.http import Http404
 
 from Group import Group as vk_group
 from User import User as vk_user
 
 from displaySite.utils import dayDonator, monthDonator
 from displaySite.utils import getGroupsPhoto, connectImgAndId
+
+
+def processor(request):
+  "A context processor that provides 'url', 'user_id'"
+
+  if Admin.isAuthenticated(request):
+    return {
+      'url': request.resolver_match.url_name,
+      'user_id': Admin.getUsername(request),
+      'last_donate': Admin.getLastDonate(request)
+    }
+  else:
+    return {'url': request.resolver_match.url_name}
 
 
 ########################################################################################
@@ -28,23 +39,23 @@ def currentDonater(request, donater_id, pageNumber = 1):
     return redirect('/')
 
   if not Donater.belongToAdmin(request, donater_id):
-    from django.http import Http404
     raise Http404
 
   donationList = Donater.getDonations(request, donater_id)
   paginator = Paginator(donationList, 10)
 
-  return render_to_response('currentDonater.html',
-    {'donater' : Donater.getDonater(donater_id),
-     'objects' : paginator.page(pageNumber),
-     'pages' : paginator.num_pages,
-     'objectName': "currentDonater/get/%s" % donater_id,
-     'last_donate': Admin.getLastDonate(request),
-     'max_donate': Donater.getMaxDonate(request, donater_id),
-     'sum_donation': Donater.getSumOfDonations(request, donater_id),
-     'average_donate': Donater.getAverageDonate(request, donater_id),
-     'number_donations' : Donater.countDonations(request, donater_id),
-     'user_id' : Admin.getUsername(request)})
+  template = 'displaySite/_w_donator_selected.html'
+  context = {
+    'donater': Donater.getDonater(donater_id),
+    'objects': paginator.page(pageNumber),
+    'pages': paginator.num_pages,
+    'objectName': "currentDonater/get/%s" % donater_id,
+    'max_donate': Donater.getMaxDonate(request, donater_id),
+    'sum_donation': Donater.getSumOfDonations(request, donater_id),
+    'average_donate': Donater.getAverageDonate(request, donater_id),
+    'number_donation': Donater.countDonations(request, donater_id),
+  }
+  return render(request, template, context)
 
 ########################################################################################
 
@@ -70,35 +81,29 @@ def currentGroup(request, group_id, pageNumber = 1):
           'group_id': group_id,
           'objectName': "currentGroup/get/%s" % group_id,
           'name': vk_group.getName(group_id),
-          'objectName': "currentGroup/get/%s" % group_id,
           'max_donate': Group.getMaxDonate(request, group_id),
           'sum_donation': Group.getSumOfDonations(request, group_id),
           'number_donation': Group.countDonations(request, group_id),
           'average_donate': Group.getAverageDonate(request, group_id),
   }
-  return render_to_response('currentGroup.html', data)
+  return render_to_response('displaySite/_w_group_selected.html', data)
 
 ########################################################################################
 
-def donaters(request, pageNumber = 1):
+def donators(request, pageNumber = 1):
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
-  if not Admin.hasDonaters(request):
-    return render_to_response \
-      ('donaters.html',
-      {'user_id': Admin.getUsername(request)})
-
   donaterList = Admin.getDonaters(request).annotate(donation_sum = Sum('donation__donation_size'))
-  paginator = Paginator(donaterList, 10)
+  paginator = Paginator(donaterList, 1)
 
-  return render_to_response\
-    ('donaters.html',
-      {'objects': paginator.page(pageNumber),
-       'pages': paginator.num_pages,
-       'objectName' : "donaters",
-       'last_donate': Admin.getLastDonate(request),
-       'user_id': Admin.getUsername(request)})
+  template = 'displaySite/_w_donator_list.html'
+  context = {
+    'objects': paginator.page(pageNumber),
+    'pages': paginator.num_pages,
+    'objectName': "donators",
+  }
+  return render(request, template, context)
 
 ########################################################################################
 
@@ -106,21 +111,16 @@ def donations(request, pageNumber = 1):
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
-  if not Admin.hasDonations(request):
-    return render_to_response \
-      ('donations.html',
-       {'user_id': Admin.getUsername(request)})
-
   donationList = Admin.getDonations(request)
-  paginator = Paginator(donationList, 10)
+  paginator = Paginator(donationList, 1)
 
-  return render_to_response\
-    ('donations.html',
-      {'objects':paginator.page(pageNumber),
-       'pages': paginator.num_pages,
-       'objectName': "donations",
-       'last_donate': Admin.getLastDonate(request),
-       'user_id': Admin.getUsername(request)})
+  template = 'displaySite/_w_donation_list.html'
+  context = {
+    'objects': paginator.page(pageNumber),
+    'pages': paginator.num_pages,
+    'objectName': "donations",
+  }
+  return render(request, template, context)
 
 ########################################################################################
 
@@ -128,17 +128,15 @@ def groups(request):
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
-  if not Admin.hasGroups(request):
-    return render_to_response \
-      ('groups.html',
-       {'user_id': Admin.getUsername(request)})
-
   groups = getGroupsPhoto(Admin.getGroups(request))
-  data = connectImgAndId(groups)
+  context = connectImgAndId(groups)
 
-  data.update({'last_donate' : Admin.getLastDonate(request),
-               'user_id' : Admin.getUsername(request)})
-  return render_to_response('groups.html', data)
+  template = 'displaySite/_w_group_list.html'
+  context.update({
+    'last_donate' : Admin.getLastDonate(request),
+    'user_id' : Admin.getUsername(request)
+  })
+  return render(request, template, context)
 
 ########################################################################################
 
@@ -146,18 +144,16 @@ def settings(request):
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
-  if not Admin.hasDonations(request):
-    return render_to_response \
-      ('settings.html',
-       {'user_id': Admin.getUsername(request)})
-
   groups = getGroupsPhoto(Admin.getGroups(request))
-  data = connectImgAndId(groups)
+  context = connectImgAndId(groups)
 
-  data.update({'last_donate': Admin.getLastDonate(request),
-               'user_id': Admin.getUsername(request)})
+  template = 'displaySite/_w_settings.html'
 
-  return render_to_response('settings.html', data)
+  context.update({
+    'last_donate': Admin.getLastDonate(request),
+    'user_id': Admin.getUsername(request)
+  })
+  return render(request, template, context)
 
 ########################################################################################
 
@@ -165,11 +161,9 @@ def statistics(request):
   if not Admin.isAuthenticated(request):
     return redirect('/')
 
+  template = 'displaySite/_w_statistics.html'
   if not Admin.hasDonations(request):
-    return render_to_response \
-      ('statistics.html',
-       {'user_id': Admin.getUsername(request),
-        'has_data' : False})
+    return render(request, template,{'has_data' : False})
 
   dayD = dayDonator(request)
   if dayD:
@@ -187,33 +181,24 @@ def statistics(request):
   if sum_donation == None:
     sum_donation = 0
 
-  return render_to_response('statistics.html',
-    {'last_donate': Admin.getLastDonate(request),
-     'user_id': Admin.getUsername(request),
-     'max_donate': Admin.GetMaxDonate(request),
-     'number_donation' : Admin.getDonations(request).count(),
-     'sum_donation' : sum_donation,
-     'average_donate': Admin.getAverageDonate(request),
-     'day_donator' : dayD,
-     'day_donator_img' : day_donator_img,
-     'month_donator_img': month_donator_img,
-     'month_donator': monthD,
-     'has_data': True})
+  context = {
+    'max_donate': Admin.GetMaxDonate(request),
+    'number_donation': Admin.getDonations(request).count(),
+    'sum_donation': sum_donation,
+    'average_donate': Admin.getAverageDonate(request),
+    'day_donator': dayD,
+    'day_donator_img': day_donator_img,
+    'month_donator_img': month_donator_img,
+    'month_donator': monthD,
+    'has_data': True
+  }
+  return render(request, template, context)
 
 ########################################################################################
 
 def information(request):
-  if not Admin.isAuthenticated(request):
-    return render_to_response('information.html')
-
-  if not Admin.hasDonations(request):
-    return render_to_response \
-      ('information.html',
-       {'user_id': Admin.getUsername(request)})
-
-  return render_to_response('information.html',
-    {'last_donate': Admin.getLastDonate(request),
-     'user_id': Admin.getUsername(request)})
+  template = 'displaySite/_w_information.html'
+  return render(request, template)
 
 
 

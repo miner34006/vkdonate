@@ -18,7 +18,7 @@ from Group import Group as vk_group
 class Admin(models.Model):
 
   def __str__(self):
-    return str(self.admin_id)
+    return "%s %s" %(self.admin_firstName, self.admin_secondName)
 
   class Meta():
     db_table = "admins"
@@ -88,7 +88,7 @@ class Admin(models.Model):
 class Group(models.Model):
 
   def __str__(self):
-    return str(self.group_id)
+    return "%s" % vk_group.getName(self.group_id).encode('utf-8')
 
   class Meta():
     db_table = "groups"

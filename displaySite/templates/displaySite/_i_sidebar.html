@@ -1,0 +1,50 @@
+<div class="profile-sidebar border hidden-xs">
+  <div class="profile-usermenu">
+    <ul class="nav menu">
+
+      <li class="{% if url == "news" %} active {% endif %}">
+        <a href="/">
+          <i class="glyphicon glyphicon-home"></i> Главная
+        </a>
+      </li>
+
+      {% if user_id %}
+        <li class="{% if url == "donations" or url == 'donations_page' %} active {% endif %}">
+          <a href="{% url "donations" %}">
+            <i class="glyphicon glyphicon-gift"></i> Донаты
+          </a>
+        </li>
+
+        <li class="{% if url == "donators" or url == "select_donator" or url == 'donators_page' %} active {% endif %}">
+          <a href="{% url "donators" %}">
+            <i class="glyphicon glyphicon-user"></i> Донатеры
+          </a>
+        </li>
+
+        <li class="{% if url == "groups" %} active {% endif %}">
+          <a href="{% url "groups" %}">
+            <i class="glyphicon glyphicon-flag"></i> Группы
+          </a>
+        </li>
+
+        <li class="{% if url == "settings" %} active {% endif %}">
+          <a href="{% url "settings" %}">
+            <i class="glyphicon glyphicon-cog"></i> Настройки
+          </a>
+        </li>
+
+        <li class="{% if url == "statistics" %} active {% endif %}">
+          <a href="{% url "statistics" %}">
+            <i style="margin-right: 6px" class="glyphicon glyphicon-stats"></i> Статистика
+          </a>
+        </li>
+        {% endif %}
+
+        <li class="{% if url == "information" %} active {% endif %}">
+          <a href="{% url "information" %}">
+            <i class="glyphicon glyphicon-info-sign"></i> О проекте
+          </a>
+        </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+{% extends "__base.html" %}
+
+{% block content %}
+  <div class="col-lg-offset-1 col-lg-2 col-md-3 col-sm-3 sidebar">
+    {% block side_col %}
+      {% include "displaySite/_i_sidebar.html"%}
+      {% include "displaySite/_i_last_donate.html" %}
+    {% endblock %}
+  </div>
+  <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 main">
+    {% block main_col %}{% endblock %}
+  </div>
+{% endblock %}

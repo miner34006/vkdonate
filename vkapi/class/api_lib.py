@@ -21,7 +21,7 @@ def getRequest(get, options = {}):
   options.update({'access_token': API_TOKEN, 'v': V})
   response = requests.get(API_LINK_ + get, options)
   data = json.loads(response.text)
-  if data.has_key('error'):
+  if 'error' in data:
     return getRequest(get, oldOptions)
   else:
     data = data['response']

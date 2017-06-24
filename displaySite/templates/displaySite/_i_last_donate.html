@@ -1,0 +1,16 @@
+{% block lastDonate %}
+  {% if user_id and last_donate %}
+    <ul class="nav text-center lastDonate">
+      <div class="panel">
+        <div class="panel-heading">
+          <p> Последний донат </p>
+        </div>
+        <div class="panel-body">
+          <p><span class="glyphicon glyphicon-rub"></span> {{ last_donate.0.donation_size }}</p>
+          <p><span class="glyphicon glyphicon-bullhorn"></span> {{ last_donate.0.donation_text }}</p>
+          <p><span class="glyphicon glyphicon-calendar"></span> {{ last_donate.0.donation_date }}</p>
+        </div>
+      </div>
+    </ul>
+  {% endif %}
+{% endblock %}

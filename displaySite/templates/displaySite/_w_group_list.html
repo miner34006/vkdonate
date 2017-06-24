@@ -1,0 +1,15 @@
+{% extends "displaySite/__l_left_sidebar.html" %}
+{% load staticfiles %}
+
+{% block main_col %}
+  <div class="profile-content border">
+    <h1 class="tableTitle">Мои группы</h1>
+    {% include "displaySite/_i_group_slider.html" %}
+  </div>
+  <div id="selected_group_add"></div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static "js/swiper.min.js" %}"></script>
+  <script src="{% static "js/scripts.js" %}"></script>
+{% endblock %}
